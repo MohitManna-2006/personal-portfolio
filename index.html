@@ -3,9 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mohit Manna -Personal Portfolio</title>
+    <title>Mohit Manna - Personal Portfolio</title>
+
+    <!--I am importing tailwind CSS here:-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+      <!-- Step 2: Tailwind Config Script -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              lightBlue: '#a8d8ff',     // light mode background
+              lightAccent: '#3b82f6',   // light mode accent
+              darkBlue: '#0a192f',       // dark mode background
+              darkAccent: '#1e40af',     // dark mode accent
+              accent: '#3b82f6',        // primary accent
+              textLight: '#1e293b',      // light mode text
+              textDark: '#f1f5f9'       // dark mode text
+            }
+          }
+        },
+        darkMode: 'class', // enables dark mode via class
+      }
+    </script>
   </head>
-  <body>
+  <body class="bg-gradient-to-br from-lightBlue to-white dark:from-darkBlue dark:to-blue-900 transition-all duration-700">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
