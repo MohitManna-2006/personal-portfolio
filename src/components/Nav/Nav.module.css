@@ -1,0 +1,166 @@
+/* 🌟 NAVBAR BASE STYLING */
+.navbar {
+  height: 72px;                     /* fixed navbar height */
+  padding: 0 80px;                  /* horizontal spacing */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.6); /* glass effect */
+  backdrop-filter: blur(10px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;                  /* stays on top */
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  animation: fadeDown 0.5s ease-out;
+}
+
+/* ✨ Smooth entry animation */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🌀 Scroll shrink effect */
+.scrolled {
+  height: 64px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* 🧢 LOGO CONTAINER */
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  max-height: 44px;                /* scales nicely within 72px bar */
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* 📎 NAV LINKS CONTAINER */
+.links-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2rem;                        /* space between links */
+  height: 100%;
+}
+
+/* 🧩 NAV LINK STYLES */
+.link a {
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* 🌈 Gradient hover underline */
+.link a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -6px;
+  background: linear-gradient(90deg, #4AB3F4, #A855F7);
+  transition: width 0.3s ease;
+}
+
+.link a:hover::after {
+  width: 100%;
+}
+
+.link a:hover {
+  color: #4AB3F4;
+  transform: translateY(-1px);
+}
+
+/* 🌙 ACTIVE LINK STATE (if using React Router) */
+.activeLink {
+  color: #4AB3F4;
+  border-bottom: 2px solid #4AB3F4;
+}
+
+/* 💨 RESPONSIVENESS */
+@media (max-width: 1024px) {
+  .navbar {
+    height: 68px;
+    padding: 0 50px;
+  }
+  .logo {
+    max-height: 40px;
+  }
+  .links-container {
+    gap: 1.75rem;
+  }
+  .link a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 64px;
+    padding: 0 20px;
+  }
+  .logo {
+    max-height: 36px;
+  }
+  .links-container {
+    gap: 1.25rem;
+  }
+  .link a {
+    font-size: 0.88rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar {
+    height: 80px;
+  }
+  .logo {
+    max-height: 50px;
+  }
+  .links-container {
+    gap: 2.5rem;
+  }
+  .link a {
+    font-size: 1rem;
+  }
+}
+
+/* 🧠 CSS VARIABLES (for easy global control) */
+:root {
+  --nav-h: 72px;
+  --logo-h: 44px;
+  --link-fs: 0.95rem;
+  --gap: 2rem;
+}
+
+
