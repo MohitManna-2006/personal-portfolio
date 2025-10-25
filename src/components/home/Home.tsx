@@ -1,4 +1,8 @@
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import styles from './Home.module.css';
+import RubiksCube from '../RubiksCube';
 
 export const Home = () => {
   return (
@@ -19,24 +23,45 @@ export const Home = () => {
 
           <div className={styles.description}>
             <p>
-              
+              Enthusastic about Software Engineering careers.
             </p>
           </div>
 
           <div className={styles.ctaButtons}>
-            <button className={styles.primaryBtn}>
-              View My Work
-            </button>
-            <button className={styles.secondaryBtn}>
-              Get In Touch
-            </button>
+            <button className={styles.primaryBtn}>About</button>
+            <button className={styles.secondaryBtn}>Get In Touch</button>
           </div>
         </div>
 
         <div className={styles.visualElement}>
-          <div className={styles.floatingCard}>
-            <div className={styles.cardContent}>
-              <div className={styles.icon}>💻</div>
+          <div className={styles.cubeContainer}>
+            <Suspense fallback={<div className={styles.loading}>Loading 3D Scene...</div>}>
+              <Canvas
+                camera={{ 
+                  position: [5, 5, 5], 
+                  fov: 50 
+                }}
+                className={styles.canvas}
+                style={{ background: 'transparent' }}
+              >
+                {/* Basic Lighting */}
+                <ambientLight intensity={0.6} />
+                <directionalLight 
+                  position={[10, 10, 5]} 
+                  intensity={1}
+                />
+                <RubiksCube />
+                <OrbitControls 
+                  enablePan={false}
+                  enableZoom={true}
+                  enableRotate={true}
+                  autoRotate={false}
+                  minDistance={3}
+                  maxDistance={10}
+                />
+              </Canvas>
+            </Suspense>
+            <div className={styles.cubeLabel}>
               <span>Building the future</span>
             </div>
           </div>
