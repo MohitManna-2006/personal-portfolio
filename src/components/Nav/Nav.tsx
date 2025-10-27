@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Nav.module.css';
 import links from './links.json';
 import logo from '../../assets/logo.svg';
@@ -13,13 +14,15 @@ const Nav: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles['logo-container']}>
-        <img src={logo} alt="Logo" className={styles.logo} />
+        <Link to="/">
+          <img src={logo} alt="Logo" className={styles.logo} />
+        </Link>
       </div>
 
       <div className={styles['links-container']}>
         {links.map((link: Link) => (
           <div key={link.id} className={styles.link}>
-            <a href={link.url}>{link.name}</a>
+            <Link to={link.url}>{link.name}</Link>
           </div>
         ))}
       </div>

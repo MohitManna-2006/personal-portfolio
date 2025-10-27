@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import styles from './Home.module.css';
@@ -28,7 +29,7 @@ export const Home = () => {
           </div>
 
           <div className={styles.ctaButtons}>
-            <button className={styles.primaryBtn}>About</button>
+            <Link to="/about" className={styles.primaryBtn}>About</Link>
             <button className={styles.secondaryBtn}>Get In Touch</button>
           </div>
         </div>
