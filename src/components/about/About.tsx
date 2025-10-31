@@ -31,19 +31,19 @@ const About: React.FC = () => {
                 <ul className={styles.featureList}>
                   <li className={styles.featureItem}>
                     <span className={styles.featureIcon}>✈️</span>
-                    🚀 Full-stack developer building performant user experiences
+                    Sophomore student @ Purdue University
                   </li>
                   <li className={styles.featureItem}>
                     <span className={styles.featureIcon}>🚗</span>
-                    Improving mobility safety through smarter analytics
+                    Interested in full stack development & AI 
                   </li>
                   <li className={styles.featureItem}>
                     <span className={styles.featureIcon}>🏎️</span>
-                    Purdue Electric Racing club: hardware + software ✦
+                    The Data Mine, Vertically Integrated Projects, Purdue Stack
                   </li>
                   <li className={styles.featureItem}>
                     <span className={styles.featureIcon}>✨</span>
-                    Always learning, always creating ✨
+                    Enthusastic about software advances
                   </li>
                 </ul>
 
