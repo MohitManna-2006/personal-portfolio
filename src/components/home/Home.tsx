@@ -18,7 +18,7 @@ export const Home = () => {
 
           <div className={styles.titleSection}>
             <h2 className={styles.title}>
-              Turning ideas into fast, scalable systems people love to use.
+              Turning ideas into fast, scalable systems
             </h2>
             <p className={styles.subtitle}>
               Computer Engineering Student @ Purdue University
