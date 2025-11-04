@@ -43,12 +43,12 @@
   z-index: 999;
 
   /* More opaque for better readability */
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(122, 21, 21, 0.92);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   backdrop-filter: blur(12px) saturate(180%);
 
   border-bottom: 1px solid var(--bar);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+  box-shadow: 0 1px 3px rgba(184, 16, 16, 0.04),
               0 1px 2px rgba(0, 0, 0, 0.02);
 
   transition: height 180ms ease, padding 180ms ease,
