@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./Experience.module.css";
+import ScrollStack, { ScrollStackItem } from "../ReactBits/ScrollStack";
 
 /* ----------------------------- Types & Data ----------------------------- */
 
@@ -16,10 +16,9 @@ type Category = "All" | "AI/ML" | "Backend" | "iOS" | "Research";
 type Experience = {
   company: Company;
   role: string;
-  period: string;         // e.g. "AUG 2025 – Present"
+  period: string;
   bullets: string[];
   tech: string[];
-  link?: string;
   categories: Exclude<Category, "All">[];
 };
 
@@ -33,7 +32,6 @@ const EXPERIENCES: Experience[] = [
       "Production-grade data prep + validation splits; tracked runs + artifacts."
     ],
     tech: ["PyTorch", "Pandas", "Scikit-learn", "W&B"],
-    link: "https://www.linkedin.com/in/mohit-manna-5b62b5241/",
     categories: ["AI/ML"]
   },
   {
@@ -45,7 +43,6 @@ const EXPERIENCES: Experience[] = [
       "Postgres + Prisma schema design; CI/CD with GitHub Actions."
     ],
     tech: ["Node.js", "Express", "Postgres", "Prisma", "Docker"],
-    link: "https://www.linkedin.com/in/mohit-manna-5b62b5241/",
     categories: ["Backend"]
   },
   {
@@ -57,7 +54,6 @@ const EXPERIENCES: Experience[] = [
       "Simplified flows + reminders to reduce task time for key actions."
     ],
     tech: ["React Native", "Expo", "TypeScript"],
-    link: "https://www.linkedin.com/in/mohit-manna-5b62b5241/",
     categories: ["iOS"]
   },
   {
@@ -69,7 +65,6 @@ const EXPERIENCES: Experience[] = [
       "Cut manual work hours/week via pipeline tooling and dashboards."
     ],
     tech: ["Next.js", "Supabase", "Cron"],
-    link: "https://www.linkedin.com/in/mohit-manna-5b62b5241/",
     categories: ["Backend"]
   },
   {
@@ -81,78 +76,16 @@ const EXPERIENCES: Experience[] = [
       "Prepared figures and a short talk on mode confinement results."
     ],
     tech: ["MATLAB", "Lumerical/FDTD", "Python"],
-    link: "https://www.linkedin.com/in/mohit-manna-5b62b5241/",
     categories: ["Research"]
   }
 ];
 
 const CATEGORIES: Category[] = ["All", "AI/ML", "Backend", "iOS", "Research"];
 
-const slug = (s: string) =>
-  s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-
-/* -------------------------- Active section hook ------------------------- */
-/* robust + flicker-free: picks the intersecting card with the largest ratio */
-function useActiveSection(ids: string[]) {
-  const [activeId, setActiveId] = useState(ids[0]);
-
-  useEffect(() => {
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
-    if (!elements.length) return;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        let best: string | null = null;
-        let bestRatio = 0;
-        for (const e of entries) {
-          if (e.isIntersecting && e.intersectionRatio > bestRatio) {
-            best = (e.target as HTMLElement).id;
-            bestRatio = e.intersectionRatio;
-          }
-        }
-        if (best && best !== activeId) setActiveId(best);
-      },
-      {
-        root: null,
-        /* center bias prevents rapid flips when edges touch */
-        rootMargin: "-35% 0px -35% 0px",
-        threshold: [0.2, 0.4, 0.6, 0.8]
-      }
-    );
-
-    elements.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ids.join("|")]);
-
-  return activeId;
-}
-
 /* ------------------------------- Page ----------------------------------- */
+
 export default function Experience() {
-  /* keep --nav-height in sync with the actual nav size */
-  useEffect(() => {
-    const updateNavVar = () => {
-      const navbar = document.querySelector("nav") as HTMLElement | null;
-      const height = navbar?.offsetHeight ?? 72;
-      document.documentElement.style.setProperty("--nav-height", `${height}px`);
-    };
-    updateNavVar();
-    const t = setTimeout(updateNavVar, 120);
-    window.addEventListener("resize", updateNavVar);
-    return () => {
-      window.removeEventListener("resize", updateNavVar);
-      clearTimeout(t);
-    };
-  }, []);
-
-  const ids = useMemo(() => EXPERIENCES.map((e) => slug(e.company)), []);
-  const activeId = useActiveSection(ids);
-
   const [activeCategory, setActiveCategory] = useState<Category>("All");
-  const reduce = useReducedMotion();
 
   const filtered = useMemo(
     () =>
@@ -162,29 +95,28 @@ export default function Experience() {
     [activeCategory]
   );
 
-  /* timeline progress (spring to avoid jitter) */
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ["start 0.9", "end 0.1"]
-  });
-  const spring = useSpring(scrollYProgress, { stiffness: 100, damping: 26, mass: 0.6 });
-  const scaleY = useTransform(spring, (v) => Math.max(0, Math.min(1, v)));
+  useEffect(() => {
+    const navbar = document.querySelector("nav") as HTMLElement | null;
+    const height = navbar?.offsetHeight ?? 72;
+    document.documentElement.style.setProperty("--nav-height", `${height}px`);
+  }, []);
 
   return (
     <main className={styles.section}>
+      {/* ---------- Header ---------- */}
       <header className={styles.heading}>
         <h1 className={styles.title}>Experience</h1>
         <p className={styles.subtitle}>A quick reel of what I've built & shipped.</p>
       </header>
 
-      <div className={styles.controlsBar} role="tablist" aria-label="Experience filters">
+      {/* ---------- Filter Buttons ---------- */}
+      <div className={styles.controlsBar}>
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
-            role="tab"
-            aria-selected={activeCategory === cat}
-            className={`${styles.filterChip} ${activeCategory === cat ? styles.filterChipActive : ""}`}
+            className={`${styles.filterChip} ${
+              activeCategory === cat ? styles.filterChipActive : ""
+            }`}
             onClick={() => setActiveCategory(cat)}
           >
             {cat}
@@ -192,64 +124,42 @@ export default function Experience() {
         ))}
       </div>
 
-      <div ref={timelineRef} className={styles.timelineContainer}>
-        {/* Static rail + animated progress */}
-        <div className={styles.timelineLine} aria-hidden="true">
-          <motion.div className={styles.timelineProgress} style={{ scaleY }} />
-        </div>
+      {/* ---------- Scroll Stack Cards ---------- */}
+      <ScrollStack
+        className={styles.scrollStackWrapper}
+        useWindowScroll={true}
+        itemDistance={120}
+        itemScale={0.05}
+        baseScale={0.9}
+        blurAmount={1.5}
+        stackPosition="30%"
+        scaleEndPosition="20%"
+        itemStackDistance={45}
+      >
+        {filtered.map((item, index) => (
+          <ScrollStackItem key={index}>
+            <article className={styles.scrollCard}>
+              <h3 className={styles.company}>{item.company}</h3>
+              <p className={styles.role}>{item.role}</p>
+              <p className={styles.period}>{item.period}</p>
 
-        {/* Entries */}
-        <div className={styles.timelineItems}>
-          {filtered.map((item, index) => {
-            const id = slug(item.company);
-            const isActive = id === activeId;
+              <ul className={styles.bullets}>
+                {item.bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
 
-            return (
-              <div key={item.company} className={styles.timelineEntry}>
-                {/* Node on the rail */}
-                <div className={styles.timelineNodeWrapper}>
-                  <div className={`${styles.nodeDot} ${isActive ? styles.nodeDotActive : ""}`} />
-                </div>
-
-                {/* Date pill */}
-                <div className={styles.datePill}>
-                  <span className={styles.datePillText}>{item.period}</span>
-                </div>
-
-                {/* Card */}
-                <motion.section
-                  id={id}
-                  className={styles.timelineItem}
-                  initial={reduce ? undefined : { opacity: 0, y: 26 }}
-                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-18% 0px" }}
-                  transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1], delay: reduce ? 0 : index * 0.05 }}
-                >
-                  <article className={styles.cardOuter}>
-                    <div className={styles.card}>
-                      <h3 className={styles.company}>{item.company}</h3>
-                      <p className={styles.role}>{item.role}</p>
-                      <p className={styles.period}>{item.period}</p>
-
-                      <ul className={styles.bullets}>
-                        {item.bullets.map((b, i) => (
-                          <li key={i}>{b}</li>
-                        ))}
-                      </ul>
-
-                      <div className={styles.tags}>
-                        {item.tech.map((t) => (
-                          <span key={t} className={styles.tag}>{t}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </article>
-                </motion.section>
+              <div className={styles.tags}>
+                {item.tech.map((t) => (
+                  <span key={t} className={styles.tag}>
+                    {t}
+                  </span>
+                ))}
               </div>
-            );
-          })}
-        </div>
-      </div>
+            </article>
+          </ScrollStackItem>
+        ))}
+      </ScrollStack>
     </main>
   );
 }

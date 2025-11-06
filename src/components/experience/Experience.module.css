@@ -1,354 +1,243 @@
-/* ========= Experience Page (matches About gradient/tone) ========= */
+@import "../ReactBits/ScrollStack.css";
+
 :root {
-  /* text */
-  --text: #8b198f;
-  --text-dim: #334155;
-  --border: rgba(15, 23, 42, 0.12);
-
-  /* surfaces */
-  --chip-bg: rgba(255, 255, 255, 0.55);
-  --chip-border: rgba(15, 23, 42, 0.18);
-  --card-bg: rgba(255, 255, 255, 0.824);
-  --card-bg-solid: rgba(255, 255, 255, 0.28);
-
-  /* sizing */
-  --page-max: 1200px;
   --nav-height: 72px;
-  --track-x: clamp(500px, 12vw, 1000px);   /* left rail offset - increased for better spacing */
-  --card-max: 900px;                    /* keep cards from getting too wide */
-
-  /* theme accents (same family as About) */
-  --indigo: #6366f1;
-  --blue:   #3b82f6;
-  --cyan:   #22d3ee;
-
-  /* shadows */
-  --shadow: 0 20px 44px rgba(2, 6, 23, 0.12);
-  --shadow-hover: 0 28px 64px rgba(2, 6, 23, 0.16);
-
-  /* timeline */
-  --timeline-line-color: rgba(99, 102, 241, 0.28);
+  --page-max: 0px;
 }
 
-/* smoother text */
-* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-
-/* ===================== PAGE SECTION ===================== */
+/* =========================
+   SECTION LAYOUT
+========================= */
 .section {
-  min-height: 100vh;
-  padding-top: calc(var(--nav-height, 72px) + 70px);
-  padding-bottom: 80px;  /* Changed from: padding-bottom: 700px; */
-  position: relative;
-  z-index: 1;
-
-  /* exact same gradient as About.module.css */
+  min-height: 50vh;
+  padding-top: calc(var(--nav-height, 72px) + 50px);
+  padding-bottom: 72px;
   background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* container */
-.container {
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: 0 clamp(50px, 6vw, 60px);
-  position: relative;
-}
-
-/* ===================== HEADING ===================== */
+/* =========================
+   HEADING
+========================= */
 .heading {
   width: fit-content;
-  margin: 0 auto 30px;
-  position: relative;
+  margin: 0 auto 60px;
   text-align: center;
-
   background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255,255,255,0.28);
   backdrop-filter: blur(20px) saturate(170%);
-  -webkit-backdrop-filter: blur(20px) saturate(170%);
   border-radius: 24px;
   padding: 22px 36px;
-
   box-shadow:
     0 24px 48px rgba(0, 0, 0, 0.12),
     0 12px 32px rgba(74, 179, 244, 0.18),
     inset 0 1px 0 rgba(255,255,255,0.6);
-  transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease;
-}
-.heading:hover { transform: translateY(-3px); }
-
-.heading::after {
-  /* soft floating glow */
-  content: "";
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 120%;
-  height: 100%;
-  border-radius: 40px;
-  background: radial-gradient(circle at 50% 60%, rgba(99,102,241,.22), transparent 70%);
-  filter: blur(28px);
-  z-index: -1;
 }
 
 .title {
-  margin: 0;
   font-size: clamp(2rem, 1.6rem + 1.5vw, 2.6rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
   background: linear-gradient(135deg, #4AB3F4, #7c6cf0 45%, #A855F7);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   background-clip: text;
-}
-.subtitle {
-  margin: 8px 0 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-dim);
-  opacity: .9;
+  -webkit-text-fill-color: transparent;
 }
 
-/* ===================== FILTER CHIPS ===================== */
+.subtitle {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+/* =========================
+   FILTER CHIPS
+========================= */
 .controlsBar {
   display: flex;
   justify-content: center;
-  gap: 45px;
-  margin: 8px 0 22px;
-  padding: 0 10px;
   flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .filterChip {
-  position: relative;
-  border: 1px solid var(--chip-border);
-  background: var(--chip-bg);
-  color: var(--text);
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.6);
+  color: #1e3a8a;
+  font-weight: 700;
   font-size: 13.5px;
-  padding: 10px 14px;
+  padding: 10px 16px;
   border-radius: 999px;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
-  white-space: nowrap;
-  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.6);
+  transition: all 0.2s ease;
 }
-.filterChip::before {
-  /* subtle gradient border like About badges */
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(90deg, rgba(99,102,241,.55), rgba(34,211,238,.55));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask-composite: exclude;
-  pointer-events: none;
+
+.filterChip:hover {
+  transform: translateY(-2px);
 }
-.filterChip:hover { transform: translateY(-2px); }
+
 .filterChipActive {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
   color: #fff;
-  background: linear-gradient(135deg, var(--indigo), var(--cyan));
   border-color: transparent;
   box-shadow: 0 10px 22px rgba(99,102,241,.28);
 }
 
-/* ===================== TIMELINE SHELL ===================== */
-.timelineContainer {
+/* =========================
+   SCROLL STACK WRAPPER
+========================= */
+.scrollStackWrapper {
   position: relative;
-  padding: 10px 0 60px;  /* This is fine, but you could reduce 60px to 40px if needed */
-  min-height: 560px;
+  width: 100%;
+  overflow: visible;
+  min-height: 100vh;
+  padding-bottom: 120px;
+  isolation: isolate; /* create a new stacking context */
 }
 
-.timelineLine {
-  position: absolute;
-  left: var(--track-x);
-  top: 0; bottom: 0;
-  width: 2px;
-  background: var(--timeline-line-color);
-  border-radius: 999px;
-  z-index: 1;
-}
-.timelineProgress {
+/* Blur the page background, not the cards behind */
+.scrollStackWrapper::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(99,102,241,.65), rgba(34,211,238,.65));
-  border-radius: 999px;
-  transform-origin: top; /* important for scaleY */
-  will-change: transform;
+  pointer-events: none;
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  z-index: 0;
 }
 
-/* stack of entries */
-.timelineItems {
+/* =========================
+   CARD STYLING (GLASSMORPHIC)
+========================= */
+.scrollCard {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  padding: 8px 0;
+  z-index: 1; /* ensure cards paint above wrapper blur */
+  background: linear-gradient(135deg, rgba(245, 250, 255, .97), rgba(233, 244, 255, .97));
+  border-radius: 22px;
+  padding: 1.5rem 2.6rem;
+  border: 1px solid rgba(147, 197, 253, .45);
+  /* stop blurring other cards */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 24px 48px rgba(2,6,23,.16);
+  max-width: 860px;
+  margin: 0 auto;
+  color: rgba(15,23,42,.9);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  /* create stacking context to prevent overlap artifacts */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-/* ===================== ENTRY PARTS ===================== */
-.timelineEntry { position: relative; width: 100%; }
-
-.timelineNodeWrapper {
-  position: absolute;
-  left: var(--track-x);
-  top: 50%;  /* If you want it centered with the card */
-  transform: translate(-50%, -50%);  /* Center both horizontally and vertically */
-  width: 44px; 
-  height: 44px;
-  display: grid; 
-  place-items: center;
-  z-index: 3;
-}
-.nodeDot {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--indigo), var(--cyan));
-  border: 3px solid #fff;
-  box-shadow: 0 0 14px rgba(99,102,241,.45);
-  transition: transform .28s ease;
-}
-.nodeDotActive { transform: scale(1.18); }
-
-/* date pill */
-/* date pill */
-/* date pill */
-.datePill {
-  position: absolute;
-  left: max(20px, calc(var(--track-x) - 170px));
-  top: 0;  /* Changed from: top: 50%; */
-  transform: none;  /* Changed from: transform: translateY(-50%); */
-  width: 170px;
-  padding: 8px 12px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.55);
-  border: 1px solid rgba(15,23,42,0.12);
-  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.10);
-  display: inline-flex; 
-  align-items: center; 
-  justify-content: center;
-}
-.datePillText {
-  color: #0f172a;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  font-size: 12.5px;
-  text-transform: uppercase;
-  opacity: .9;
+.scrollCard:hover {
+  box-shadow: 0 28px 56px rgba(2,6,23,.20);
 }
 
-/* card container to right of rail */
-.timelineItem {
-  width: calc(100% - var(--track-x) - 48px);
-  margin-left: calc(var(--track-x) + 48px);
-  max-width: var(--card-max);
-  scroll-margin-top: calc(var(--nav-height, 72px) + 20px);
+@media (prefers-reduced-motion: no-preference) {
+  .scrollCard:hover {
+    transform: translateZ(0) translateY(-2px);
+  }
 }
 
-/* card */
-.cardOuter {
-  position: relative;
-  padding: 2px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(99,102,241,.28), rgba(34,211,238,.28));
-  box-shadow: var(--shadow);
-  transition: box-shadow 240ms ease, transform 240ms ease;
-}
-.cardOuter:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
-
-.card {
-  background: var(--card-bg);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,0.45);
-  border-radius: 18px;
-  padding: 30px 32px;
-}
-
-/* header text */
+/* =========================
+   TEXT STYLING
+========================= */
 .company {
-  margin: 0 0 6px;
-  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
-  font-weight: 900;
-  letter-spacing: -0.015em;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0 0 0.25rem;
   background: linear-gradient(135deg, #4AB3F4, #7c6cf0 45%, #A855F7);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   background-clip: text;
-}
-.role {
-  margin: 0 0 6px 0;
-  color: var(--text);        /* #0f172a from :root */
-  font-weight: 300;          /* bold */
-  font-size: 0.98rem;        /* ~15.7px if base is 16px */
-}
-.period {
-  margin: 0;
-  color: var(--text-dim);
-  font-size: 0.9rem;
-  font-weight: 600;
+  -webkit-text-fill-color: transparent;
 }
 
-/* bullets */
-.bullets { margin: 16px 0 0; padding: 0; list-style: none; }
+.role {
+  font-weight: 600;
+  font-size: 1rem;
+  color: rgba(15,23,42,.9);
+  margin: 0.4rem 0 0.6rem;
+}
+
+.period {
+  color: rgba(15,23,42,.65);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   BULLET POINTS
+========================= */
+.bullets {
+  list-style: none;
+  margin-top: 1rem;
+  padding: 0;
+}
+
 .bullets li {
   position: relative;
-  padding-left: 18px;
-  margin: 10px 0;
-  color: var(--text);
-  line-height: 1.64;
-  font-size: 0.96rem;
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: rgba(15,23,42,.9);
+  font-weight: 500;
+  line-height: 1.6;
 }
+
 .bullets li::before {
   content: "";
   position: absolute;
-  left: 0; top: 0.72em;
-  width: 6px; height: 6px;
+  left: 0;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  background: #6366f1;
   border-radius: 50%;
-  background: rgba(99,102,241,.7);
 }
 
-/* tags */
+/* =========================
+   TAGS
+========================= */
 .tags {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin-top: 18px; padding-top: 14px;
-  border-top: 1px solid rgba(255,255,255,0.45);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  position: relative;
 }
+
 .tag {
-  font-size: 12.5px; font-weight: 800; letter-spacing: .02em;
-  padding: 8px 10px; border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
   color: #1e3a8a;
-  background: linear-gradient(180deg, rgba(191,219,254,0.65), rgba(191,219,254,0.35));
-  border: 1px solid rgba(99,102,241,.35);
-  transition: transform 140ms ease;
-}
-.tag:hover { transform: translateY(-1px); }
-
-/* ===================== RESPONSIVE ===================== */
-@media (max-width: 960px) {
-  :root { --track-x: 48px; }
-  .container { padding: 0 24px; }
-  .timelineItems { gap: 70px; }
-  .datePill { 
-    display: none; 
-  }
-  .timelineItem { 
-    width: calc(100% - var(--track-x) - 20px); 
-    margin-left: calc(var(--track-x) + 20px); 
-    max-width: 100%;
-  }
-  .card { padding: 24px 20px; }
+  background: rgba(191, 219, 254, 0.65);
+  border-radius: 999px;
+  padding: 6px 12px;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-@media (max-width: 640px) {
-  :root { --track-x: 32px; }
-  .container { padding: 0 20px; }
-  .timelineItem { 
-    width: calc(100% - var(--track-x) - 16px); 
-    margin-left: calc(var(--track-x) + 16px); 
+@media (prefers-reduced-motion: no-preference) {
+  .tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(15, 23, 42, 0.12);
   }
 }
 
-/* focus states */
-.filterChip:focus-visible, .tag:focus-visible, .cardOuter:focus-within {
-  outline: 2px solid rgba(99,102,241,0.8);
-  outline-offset: 2px;
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .scrollCard {
+    padding: 1.6rem 1.6rem;
+    border-radius: 20px;
+  }
+
+  .controlsBar {
+    gap: 1rem;
+  }
 }
