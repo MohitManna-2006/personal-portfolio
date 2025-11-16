@@ -1,243 +1,136 @@
-/* ========= Skills Page (matches About/Experience gradient/tone) ========= */
-:root {
-  /* text */
-  --text: #0f172a;
-  --text-dim: #334155;
-  --border: rgba(15, 23, 42, 0.12);
-
-  /* surfaces */
-  --chip-bg: rgba(255, 255, 255, 0.55);
-  --chip-border: rgba(15, 23, 42, 0.18);
-  --card-bg: rgba(255, 255, 255, 0.16);
-  --card-bg-solid: rgba(255, 255, 255, 0.28);
-
-  /* sizing */
-  --page-max: 1200px;
-  --nav-height: 72px;
-
-  /* theme accents (same family as About/Experience) */
-  --indigo: #6366f1;
-  --blue: #3b82f6;
-  --cyan: #22d3ee;
-
-  /* shadows */
-  --shadow: 0 20px 44px rgba(2, 6, 23, 0.12);
-  --shadow-hover: 0 28px 64px rgba(2, 6, 23, 0.16);
-}
-
-/* smoother text */
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 /* ===================== PAGE SECTION ===================== */
 .section {
   min-height: 100vh;
-  padding-top: calc(var(--nav-height, 72px) + 70px);
-  padding-bottom: 80px;
-  position: relative;
-  z-index: 1;
-
-  /* exact same gradient as About/Experience */
+  padding-top: calc(var(--nav-height, 72px) + 40px);
+  padding-bottom: 0px;
   background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+  position: relative;
 }
 
 .container {
-  max-width: var(--page-max);
+  max-width: 1500px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 clamp(32px, 5vw, 60px);
+  padding: 0 clamp(32px, 5vw, 64px);
   position: relative;
 }
 
 /* ===================== HEADING ===================== */
 .heading {
   width: fit-content;
-  margin: 0 auto 28px;
-  position: relative;
+  margin: 0 auto;
+  margin-top: 50px;
   text-align: center;
-
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(20px) saturate(170%);
-  -webkit-backdrop-filter: blur(20px) saturate(170%);
-  border-radius: 24px;
-  padding: 22px 36px;
-
-  box-shadow:
-    0 24px 48px rgba(0, 0, 0, 0.12),
-    0 12px 32px rgba(74, 179, 244, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
-}
-
-.heading:hover {
-  transform: translateY(-3px);
-}
-
-.heading::after {
-  /* soft floating glow */
-  content: "";
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 120%;
-  height: 100%;
-  border-radius: 40px;
-  background: radial-gradient(circle at 50% 60%, rgba(99, 102, 241, 0.22), transparent 70%);
-  filter: blur(28px);
-  z-index: -1;
+  padding: 22px 40px;
 }
 
 .title {
   margin: 0;
-  font-size: clamp(2rem, 1.6rem + 1.5vw, 2.6rem);
+  font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #4ab3f4, #7c6cf0 45%, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #0982ce;
 }
 
 .subtitle {
   margin: 8px 0 0;
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-dim);
-  opacity: 0.9;
+  font-weight: 500;
+  color: #73648b;
 }
 
-/* ===================== FILTER CHIPS ===================== */
-.controlsBar {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin: 8px 0 40px;
-  padding: 0 10px;
-  flex-wrap: wrap;
-}
-
-.filterChip {
+/* ===== Flowing Menu container (React Bits strip) ===== */
+.flowingMenuContainer {
+  height: 350px;
   position: relative;
-  border: 1px solid var(--chip-border);
-  background: var(--chip-bg);
-  color: var(--text);
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  font-size: 13.5px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
-  white-space: nowrap;
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.filterChip::before {
-  /* subtle gradient border */
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(90deg, rgba(99, 102, 241, 0.55), rgba(34, 211, 238, 0.55));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-.filterChip:hover {
-  transform: translateY(-2px);
-}
-
-.filterChipActive {
-  color: #fff;
-  background: linear-gradient(135deg, var(--indigo), var(--cyan));
-  border-color: transparent;
-  box-shadow: 0 10px 22px rgba(99, 102, 241, 0.28);
-}
-
-.filterChip:focus-visible {
-  outline: 2px solid rgba(99, 102, 241, 0.8);
-  outline-offset: 2px;
+  margin: 0 auto;
+  margin-top: 150px;
+  max-width: 1500px;
+  width: 100%;
+  border-radius: 50px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #1e293b 100%);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
 }
 
 /* ===================== SKILLS GRID ===================== */
 .skillsGrid {
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  padding: 8px 0;
+  gap: 10px;
+  margin-top: 60px;
 }
 
 .categoryGroup {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 30px 0;
 }
 
 .categoryTitle {
   margin: 0;
-  font-size: clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  text-transform: uppercase;
   font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-transform: uppercase;
   letter-spacing: 0.1em;
-  opacity: 0.85;
 }
 
+/* Container for chips in each category */
 .skillsList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
 }
 
+/* Base chip styling */
 .skillCard {
   position: relative;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(20px) saturate(170%);
-  -webkit-backdrop-filter: blur(20px) saturate(170%);
-  border-radius: 16px;
-  padding: 18px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  z-index: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 15px 30px;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #0f172a;
+
+  background: linear-gradient(135deg, #e0f2fe, #f1f5f9);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+
   cursor: default;
-  transition: all 0.24s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.08),
-    0 4px 12px rgba(74, 179, 244, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
 }
 
-.skillCard:hover {
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.12),
-    0 6px 16px rgba(74, 179, 244, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
+/* Gradient ring behind chip on hover */
 .skillCard::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -1px;
   border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(34, 211, 238, 0.3));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
+  background: linear-gradient(135deg, #7dd3fc, #6366f1, #c4b5fd);
   opacity: 0;
-  transition: opacity 0.24s ease;
+  z-index: -1;
+  transition: opacity 0.2s ease;
+}
+
+/* Hover microinteraction */
+.skillCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.12);
+  background: linear-gradient(135deg, #dbeafe, #eef2ff);
+  border-color: rgba(129, 140, 248, 0.8);
 }
 
 .skillCard:hover::before {
@@ -245,19 +138,34 @@
 }
 
 .skillName {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -0.01em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f172a;
 }
 
-.proficiency {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.8;
+/* ===================== CATEGORY COLOR TINTS ===================== */
+
+.groupLanguages .skillCard {
+  background: linear-gradient(135deg, #e0f2fe, #f1f5f9);
+}
+
+.groupFrameworks .skillCard {
+  background: linear-gradient(135deg, #e0f2fe, #f1f5f9);
+}
+
+.groupTools .skillCard {
+  background: linear-gradient(135deg, #e0f2fe, #f1f5f9);
+}
+
+.groupDatabases .skillCard {
+  background: linear-gradient(135deg, #e0f2fe, #f1f5f9);
+}
+
+.groupLanguages .skillCard:hover,
+.groupFrameworks .skillCard:hover,
+.groupTools .skillCard:hover,
+.groupDatabases .skillCard:hover {
+  background: linear-gradient(135deg, #dbeafe, #eef2ff);
 }
 
 /* ===================== RESPONSIVE ===================== */
@@ -266,13 +174,22 @@
     padding: 0 24px;
   }
 
-  .skillsList {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 12px;
-  }
+/* ===== Flowing Menu container (React Bits strip) ===== */
+.flowingMenuContainer {
+  height: 260px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 0px; /* Adjust this value to move it up/down */
+  max-width: 900px;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #060010;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+}
 
-  .skillCard {
-    padding: 16px 18px;
+  .skillsList {
+    gap: 10px;
   }
 }
 
@@ -281,45 +198,16 @@
     padding: 0 20px;
   }
 
-  .controlsBar {
-    gap: 8px;
-  }
-
-  .filterChip {
-    font-size: 12px;
-    padding: 8px 14px;
-  }
-
   .skillsList {
-    grid-template-columns: 1fr;
+    justify-content: flex-start;
   }
 
   .skillsGrid {
-    gap: 36px;
-  }
-}
-
-/* ===================== DARK MODE ===================== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #f1f5f9;
-    --text-dim: #cbd5e1;
-    --border: rgba(255, 255, 255, 0.12);
-    --chip-bg: rgba(15, 23, 42, 0.55);
-    --chip-border: rgba(255, 255, 255, 0.18);
-    --card-bg: rgba(15, 23, 42, 0.16);
-    --card-bg-solid: rgba(15, 23, 42, 0.28);
+    gap: 60px;
   }
 
-  .section {
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
-  }
-
-  .heading,
-  .skillCard {
-    box-shadow:
-      0 24px 48px rgba(0, 0, 0, 0.3),
-      0 12px 32px rgba(74, 179, 244, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  .categoryGroup {
+    padding: 32px 0;
+    gap: 20px;
   }
 }

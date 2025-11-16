@@ -11,11 +11,12 @@ const EXPERIENCES: Experience[] = [
     id: "caterpillar",
     company: "Caterpillar (Data-Mine)",
     role: "Data Science Researcher – GEN AI Team",
-    period: "AUG 2025 – Present",
+    period: "AUG 2024 – Present",
     timelineLabel: "2025 • AI/ML · Data Science",
     bullets: [
-      "Build decoder-only time-series models for supply chain metrics.",
-      "Production-grade data prep + validation splits; tracked runs + artifacts."
+      "Built decoder transformer models to forecast equipment demand, improving accuracy by 15%.",
+      "Engineered automated data pipelines in Python & SQL, lowering ML model latency by 10%.",
+      "Built Power BI dashboards for CAT KPIs, cutting analyst workload by ~6 hours per week."
     ],
     tech: ["PyTorch", "Pandas", "SQL"],
     category: "AI/ML"
@@ -24,11 +25,12 @@ const EXPERIENCES: Experience[] = [
     id: "purdue-stack",
     company: "Purdue Stack",
     role: "Software Developer",
-    period: "JUL 2025 – Present",
+    period: "Jun 2025 – Present",
     timelineLabel: "2025 • Backend · Matching Engine",
     bullets: [
-      "REST APIs for TA assignment optimization with robust auth and rate limits.",
-      "Postgres + Prisma schema design; CI/CD with GitHub Actions."
+      "Optimized a TA–course matching engine, improving placements across 30 math sections.",
+      "Designed REST APIs and a normalized PostgreSQL schema to support ~200 TAs each semester.",
+      "Integrated CSV exports and batch notifications for one-click reviews, reducing processing latency by 10%."
     ],
     tech: ["Flask", "React", "Python"],
     category: "Backend"
@@ -37,14 +39,15 @@ const EXPERIENCES: Experience[] = [
     id: "mysphere",
     company: "MySphere",
     role: "Software Developer Intern",
-    period: "JUL 2025 – SEP 2025",
+    period: "Jun 2025 – Aug 2025",
     timelineLabel: "2025 • iOS · React Native",
     bullets: [
-      "Senior-friendly UI with large tap targets and high-contrast theming.",
-      "Simplified flows + reminders to reduce task time for key actions."
+      "Implemented AI speech-to-text prompts with intent routing, boosting task completion for 310 users.",
+      "Streamlined Express APIs for profile auth and JWT signing, increasing sign-in success by 1,200+ sessions.",
+      "Shipped optimized React Native layouts that reduced taps per task for seniors by 20%."
     ],
     tech: ["React-Native", "Expo", "TypeScript"],
-    category: "iOS"
+    category: "Full-Stack"
   },
   {
     id: "creative-capital",
@@ -53,11 +56,12 @@ const EXPERIENCES: Experience[] = [
     period: "MAR 2025 – AUG 2025",
     timelineLabel: "2025 • Backend · Automation",
     bullets: [
-      "Automated content ops and analytics reporting with scheduled jobs.",
-      "Cut manual work hours/week via pipeline tooling and dashboards."
+      "Automated investor onboarding with Node + SendGrid workflows, cutting verification time by 25%.",
+      "Deployed Supabase APIs with auth and Row-Level Security, reducing query latency by 240 ms.",
+      "Delivered an investor dashboard for self-serve updates, reducing preprocessing time by 35%."
     ],
     tech: ["Next.js", "Supabase", "React"],
-    category: "Backend"
+    category: "Frontend"
   },
   {
     id: "photonics-lab",
@@ -66,13 +70,15 @@ const EXPERIENCES: Experience[] = [
     period: "JAN 2025 – MAY 2025",
     timelineLabel: "2025 • Research · Photonics",
     bullets: [
-      "Waveguide parameter sweeps + FDTD/MATLAB simulations.",
-      "Prepared figures and a short talk on mode confinement results."
+      "Engineered an automated ETL pipeline for 10,000+ waveguide simulations, reducing analysis time by 18%.",
+      "Prepared figures and a short talk on mode-confinement and efficiency results for lab presentations.",
+      "Awarded 1st place out of 200 at the Purdue Research Symposium for the waveguide processing framework."
     ],
     tech: ["Python", "Matlab", "PyTorch"],
     category: "Research"
   }
 ];
+
 
 /* ------------------------------- Component ------------------------------ */
 
@@ -100,6 +106,15 @@ export default function Experience() {
 
       rafRef.current = window.requestAnimationFrame(() => {
         rafRef.current = null;
+
+        // If at the top of the page, always use the first card
+        if (window.scrollY === 0 || window.scrollY < 100) {
+          if (lastActiveIndexRef.current !== 0) {
+            lastActiveIndexRef.current = 0;
+            setActiveId(EXPERIENCES[0].id);
+          }
+          return;
+        }
 
         const cards = cardRefs.current.filter(Boolean) as HTMLElement[];
         if (!cards.length) return;

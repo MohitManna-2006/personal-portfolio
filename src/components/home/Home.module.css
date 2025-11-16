@@ -108,45 +108,46 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #4AB3F4, #A855F7);
-  color: white;
-  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  color: #2c3e50;
+  border: 1px solid rgba(44, 62, 80, 0.15);
   padding: 1.1rem 2.2rem;
   border-radius: 16px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
   text-decoration: none;
-  box-shadow:
-    0 8px 25px rgba(74, 179, 244, 0.3),
-    0 4px 12px rgba(168, 85, 247, 0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-.arrow { width: 20px; height: 20px; transition: transform .2s ease; }
-.primaryBtn:hover { transform: translateY(-3px); }
+.arrow { width: 20px; height: 20px; transition: transform .2s ease; color: #2c3e50; }
+.primaryBtn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
 .primaryBtn:hover .arrow { transform: translateX(4px); }
 
 /* Secondary = About */
 .secondaryBtn {
-  background: rgba(6, 31, 223, 0.1);
-  color: black;
-  border: 2px solid #4AB3F4;
+  background: rgba(255, 255, 255, 0.8);
+  color: #2c3e50;
+  border: 1px solid rgba(44, 62, 80, 0.15);
   padding: 1.1rem 2.2rem;
   border-radius: 16px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform .2s ease, background .2s ease, box-shadow .2s ease, color .2s ease;
-  backdrop-filter: blur(10px);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  backdrop-filter: blur(8px);
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 .secondaryBtn:hover {
-  background: linear-gradient(135deg, #0271b7, #640011);
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow:
-    0 15px 35px rgba(74, 179, 244, 0.25),
-    0 8px 20px rgba(168, 85, 247, 0.18);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 /* Tertiary = Resume */
@@ -302,19 +303,12 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 5;
 }
 
 .cubeLabel span {
   font-size: 1rem;
   font-weight: 600;
-  color: #2c3e50;
   background: linear-gradient(135deg, #4AB3F4, #A855F7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

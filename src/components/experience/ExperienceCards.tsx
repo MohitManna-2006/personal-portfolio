@@ -1,7 +1,7 @@
 import type { RefObject } from "react";
 import styles from "./Experience.module.css";
 
-type Category = "AI/ML" | "Backend" | "iOS" | "Research";
+type Category = "AI/ML" | "Backend" | "iOS" | "Research" | "Frontend";
 
 export type Experience = {
   id: string;
