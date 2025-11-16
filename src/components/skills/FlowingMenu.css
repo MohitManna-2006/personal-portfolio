@@ -26,13 +26,19 @@
   justify-content: center;
   height: 100%;
   position: relative;
-  cursor: pointer;
+  cursor:crosshair;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  font-weight: 600;
-  color: #fff;
+  font-weight: 700;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 4vh;
+  letter-spacing: 0.12em;
+  transition: letter-spacing 0.3s ease;
 }
 
 .menu__item-link:hover {
