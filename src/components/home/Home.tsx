@@ -1,11 +1,17 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { Link } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import styles from "./Home.module.css";
 import RubiksCube from "../RubiksCube";
+import resumePdf from "../../assets/resume.pdf";
 
 export const Home = () => {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
+  const openResume = () => setIsResumeOpen(true);
+  const closeResume = () => setIsResumeOpen(false);
+
   return (
     <div className={styles.homeContainer}>
       <div className={styles.heroSection}>
@@ -41,11 +47,9 @@ export const Home = () => {
             </a>
 
             <Link to="/about" className={styles.secondaryBtn}>About</Link>
-
-            {/* Optional resume link; replace with your actual file path */}
-            <a href="/resume.pdf" className={styles.ghostBtn}>
+            <button onClick={openResume} className={styles.ghostBtn}>
               Resume
-            </a>
+            </button>
           </div>
         </div>
 
@@ -77,6 +81,24 @@ export const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Resume Modal */}
+      {isResumeOpen && (
+        <div className={styles.modalOverlay} onClick={closeResume}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.modalClose} onClick={closeResume} aria-label="Close resume">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+            <iframe
+              src={resumePdf}
+              className={styles.resumeIframe}
+              title="Resume"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
