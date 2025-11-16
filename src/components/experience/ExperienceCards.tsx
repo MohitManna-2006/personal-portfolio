@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import type { RefObject } from "react";
 import styles from "./Experience.module.css";
 
 type Category = "AI/ML" | "Backend" | "iOS" | "Research";

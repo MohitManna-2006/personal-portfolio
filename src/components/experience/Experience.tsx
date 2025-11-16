@@ -17,7 +17,7 @@ const EXPERIENCES: Experience[] = [
       "Build decoder-only time-series models for supply chain metrics.",
       "Production-grade data prep + validation splits; tracked runs + artifacts."
     ],
-    tech: ["PyTorch", "Pandas", "Scikit-learn", "W&B"],
+    tech: ["PyTorch", "Pandas", "SQL"],
     category: "AI/ML"
   },
   {
@@ -30,7 +30,7 @@ const EXPERIENCES: Experience[] = [
       "REST APIs for TA assignment optimization with robust auth and rate limits.",
       "Postgres + Prisma schema design; CI/CD with GitHub Actions."
     ],
-    tech: ["Node.js", "Express", "Postgres", "Prisma", "Docker"],
+    tech: ["Flask", "React", "Python"],
     category: "Backend"
   },
   {
@@ -43,7 +43,7 @@ const EXPERIENCES: Experience[] = [
       "Senior-friendly UI with large tap targets and high-contrast theming.",
       "Simplified flows + reminders to reduce task time for key actions."
     ],
-    tech: ["React Native", "Expo", "TypeScript"],
+    tech: ["React-Native", "Expo", "TypeScript"],
     category: "iOS"
   },
   {
@@ -56,7 +56,7 @@ const EXPERIENCES: Experience[] = [
       "Automated content ops and analytics reporting with scheduled jobs.",
       "Cut manual work hours/week via pipeline tooling and dashboards."
     ],
-    tech: ["Next.js", "Supabase", "Cron"],
+    tech: ["Next.js", "Supabase", "React"],
     category: "Backend"
   },
   {
@@ -69,7 +69,7 @@ const EXPERIENCES: Experience[] = [
       "Waveguide parameter sweeps + FDTD/MATLAB simulations.",
       "Prepared figures and a short talk on mode confinement results."
     ],
-    tech: ["MATLAB", "Lumerical/FDTD", "Python"],
+    tech: ["Python", "Matlab", "PyTorch"],
     category: "Research"
   }
 ];
@@ -163,14 +163,12 @@ export default function Experience() {
     <main className={styles.section}>
       <div className={styles.inner}>
         <ExperienceHeader />
-
         <div className={styles.layout}>
           <ExperienceTimeline
             experiences={EXPERIENCES}
             activeId={activeId}
             onTimelineClick={handleTimelineClick}
           />
-
           <ExperienceCards
             experiences={EXPERIENCES}
             activeId={activeId}
