@@ -77,7 +77,7 @@ const Skills: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.4,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -126,7 +126,7 @@ const Skills: React.FC = () => {
             <motion.div
               key={category}
               className={styles.categoryGroup}
-              variants={itemVariants as Parameters<typeof motion.div>[0]['variants']}
+              variants={itemVariants}
             >
               <h2 className={styles.categoryTitle}>{category}</h2>
               <div className={styles.skillsList}>
