@@ -82,6 +82,18 @@ module.exports = {
   			float: {
   				'0%, 100%': { transform: 'translateY(0px)' },
   				'50%': { transform: 'translateY(-20px)' }
+  			},
+  			scaleFadeIn: {
+  				'0%': { opacity: '0', transform: 'scale(0.98)' },
+  				'100%': { opacity: '1', transform: 'scale(1)' }
+  			},
+  			underlineGrow: {
+  				'0%': { transform: 'scaleX(0.1)', opacity: '0.6' },
+  				'100%': { transform: 'scaleX(1)', opacity: '1' }
+  			},
+  			pulse: {
+  				'0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+  				'50%': { opacity: '0.85', transform: 'scale(1.05)' }
   			}
   		},
   		animation: {
@@ -91,7 +103,10 @@ module.exports = {
   			'fadeInUp-delay-200': 'fadeInUp 0.8s ease-out 0.2s both',
   			'fadeInUp-delay-400': 'fadeInUp 0.8s ease-out 0.4s both',
   			'fadeInUp-delay-800': 'fadeInUp 0.8s ease-out 0.8s both',
-  			float: 'float 4s ease-in-out infinite'
+  			float: 'float 4s ease-in-out infinite',
+  			scaleFadeIn: 'scaleFadeIn 0.54s cubic-bezier(0.2,0.8,0.2,1)',
+  			underlineGrow: 'underlineGrow 600ms cubic-bezier(0.2,0.8,0.2,1) 120ms forwards',
+  			pulse: 'pulse 3.8s ease-in-out infinite'
   		}
   	}
   },

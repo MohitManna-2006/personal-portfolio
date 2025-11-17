@@ -1,13 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import resumePdf from "../../assets/resume.pdf";
 import Particles from "../Particles";
+import ProfileCard from "../ProfileCard";
+import profilePic from "../../assets/images/profilePic.png";
 
 export const Home = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   const openResume = () => setIsResumeOpen(true);
   const closeResume = () => setIsResumeOpen(false);
+  
+  const handleContactClick = () => {
+    window.location.href = 'mailto:mannamohit542@gmail.com';
+  };
 
   return (
     <div className="min-h-screen pt-[72px] flex items-center justify-center relative overflow-hidden bg-[#eef6ff] [background-image:radial-gradient(60%_50%_at_15%_20%,rgba(99,102,241,0.20),transparent_60%),radial-gradient(60%_50%_at_85%_30%,rgba(56,189,248,0.18),transparent_60%),radial-gradient(70%_60%_at_50%_80%,rgba(168,85,247,0.16),transparent_60%)]">
@@ -15,13 +20,13 @@ export const Home = () => {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Particles
           particleColors={['#000000', '#1a1a1a', '#2c2c2c']}
-          particleCount={150}
-          particleSpread={12}
+          particleCount={500}
+          particleSpread={10}
           speed={0.08}
-          particleBaseSize={80}
-          sizeRandomness={0.8}
+          particleBaseSize={100}
+          sizeRandomness={0.2}
           moveParticlesOnHover={true}
-          particleHoverFactor={2}
+          particleHoverFactor={5}
           alphaParticles={false}
           disableRotation={false}
           cameraDistance={25}
@@ -31,51 +36,52 @@ export const Home = () => {
       {/* Grid Overlay - Optional, can be removed if too busy */}
       <div className="absolute inset-0 pointer-events-none z-[1] opacity-30 [background-image:linear-gradient(to_right,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.03)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(65%_55%_at_55%_40%,black,transparent_70%)]" />
 
-      <div className="max-w-[1200px] w-full px-8 z-[2] text-center relative">
-        <div className="mb-12">
-          <span className="block text-3xl font-light text-[#4AB3F4] mb-4 tracking-wide animate-fadeInUp">Hi, I'm</span>
-          <h1 
-            className="text-[5rem] md:text-[6rem] font-extrabold m-0 leading-[1.1] bg-gradient-to-br from-[#4AB3F4] to-[#A855F7] bg-clip-text text-transparent tracking-tight"
-            style={{ animation: 'fadeInUp 0.8s ease-out 0.2s both' }}
-          >
-            Mohit Manna
-          </h1>
+      <div className="max-w-[1200px] w-full px-8 z-[2] relative flex flex-col items-center">
+        <div className="mb-12 w-full flex justify-center">
+          <span className="text-3xl font-light text-[#4AB3F4] tracking-wide animate-fadeInUp">Hi, I'm</span>
         </div>
         
+        {/* ProfileCard */}
         <div 
-          className="mb-16"
+          className="mb-16 w-full max-w-[500px] mx-auto"
           style={{ animation: 'fadeInUp 0.8s ease-out 0.4s both' }}
         >
-          <p className="text-2xl text-[#4AB3F4] m-0 font-light tracking-wide">
-            Computer Engineering @ Purdue University
-          </p>
+          <ProfileCard
+            name="Mohit Manna"
+            title="Computer Engineering + Math @ Purdue University"
+            handle="mohitmanna"
+            status="Available"
+            contactText="Contact Me"
+            avatarUrl={profilePic}
+            miniAvatarUrl={profilePic}
+            showUserInfo={true}
+            enableTilt={true}
+            enableMobileTilt={false}
+            onContactClick={handleContactClick}
+            behindGlowEnabled={false}
+            behindGlowColor="rgba(74, 179, 244, 0.67)"
+            className="w-full"
+          />
         </div>
         
         {/* CTAs */}
         <div 
-          className="flex gap-6 flex-wrap justify-center"
+          className="flex justify-start items-center gap-6 w-full max-w-[500px] mx-auto"
           style={{ animation: 'fadeInUp 0.8s ease-out 0.8s both' }}
         >
             <a 
               href="mailto:mannamohit542@gmail.com"  
-              className="group relative inline-flex items-center gap-3 bg-black text-white border-none py-4 px-10 rounded-lg text-lg font-semibold cursor-pointer transition-all duration-300 no-underline shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:bg-[#1a1a1a] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] active:translate-y-0 active:shadow-[0_4px_16px_rgba(0,0,0,0.2)]"
+              className="group relative inline-flex items-center justify-center gap-3 bg-black text-white border-none py-4 px-12 rounded-lg text-lg font-semibold cursor-pointer transition-all duration-300 no-underline shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:bg-[#1a1a1a] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] active:translate-y-0 active:shadow-[0_4px_16px_rgba(0,0,0,0.2)]"
             >
               <span>Contact Me</span>
               <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <path d="M5 12h14m-7-7l7 7-7 7" />
               </svg>
             </a>
-
-            <Link 
-              to="/about" 
-              className="inline-flex items-center justify-center bg-black text-white border-none py-4 px-10 rounded-lg text-lg font-semibold cursor-pointer transition-all duration-300 no-underline shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:bg-[#1a1a1a] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] active:translate-y-0 active:shadow-[0_4px_16px_rgba(0,0,0,0.2)]"
-            >
-              About
-            </Link>
   
             <button 
               onClick={openResume} 
-              className="inline-flex items-center justify-center bg-black text-white border-none py-4 px-10 rounded-lg font-semibold transition-all duration-300 no-underline cursor-pointer font-inherit text-lg shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:bg-[#1a1a1a] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] active:translate-y-0 active:shadow-[0_4px_16px_rgba(0,0,0,0.2)]"
+              className="inline-flex items-center justify-center bg-black text-white border-none py-4 px-12 rounded-lg text-lg font-semibold transition-all duration-300 no-underline cursor-pointer font-inherit shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:bg-[#1a1a1a] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] active:translate-y-0 active:shadow-[0_4px_16px_rgba(0,0,0,0.2)] ml-auto"
             >
               Resume
             </button>
