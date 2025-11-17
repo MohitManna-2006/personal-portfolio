@@ -78,7 +78,6 @@ const Skills: React.FC = () => {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
           <h1 className={styles.title}>Technical Skills</h1>
-          <p className={styles.subtitle}>Tools and technologies I work with</p>
         </motion.div>
 
         {/* Flowing Menu strip */}
