@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "./Experience.module.css";
 import ExperienceCards, { type Experience } from "./ExperienceCards";
 import ExperienceHeader from "./ExperienceHeader";
 import ExperienceTimeline from "./ExperienceTimeline";
@@ -175,10 +174,11 @@ export default function Experience() {
   };
 
   return (
-    <main className={styles.section}>
-      <div className={styles.inner}>
+    <main className="pt-[calc(var(--nav-height,72px)+24px)] pb-12 px-[clamp(16px,5vw,48px)] max-md:pt-[calc(var(--nav-height,72px)+16px)] max-md:pb-8 font-['Inter',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-[#020617] relative">
+      {/* Content - transparent, showing global background through */}
+      <div className="max-w-[1100px] mx-auto relative">
         <ExperienceHeader />
-        <div className={styles.layout}>
+        <div className="mt-8 grid grid-cols-[280px_minmax(0,1fr)] items-start w-full justify-center max-md:grid-cols-1 max-md:gap-8">
           <ExperienceTimeline
             experiences={EXPERIENCES}
             activeId={activeId}

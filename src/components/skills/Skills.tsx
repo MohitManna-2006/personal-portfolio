@@ -1,6 +1,5 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import styles from "./Skills.module.css";
 import FlowingMenu from "./FlowingMenu";
 
 type SkillCategory = "Languages" | "Frameworks" | "Databases" | "Tools";
@@ -68,20 +67,21 @@ const Skills: React.FC = () => {
   const reduce = useReducedMotion();
 
   return (
-    <div className={styles.section}>
-      <div className={styles.container}>
+    <div className="pt-[calc(var(--nav-height,72px)+24px)] pb-12 px-[clamp(16px,5vw,48px)] max-md:pt-[calc(var(--nav-height,72px)+16px)] max-md:pb-8 font-['Inter',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-[#020617] relative">
+      {/* Content - transparent, showing global background through */}
+      <div className="max-w-[1500px] w-full mx-auto relative px-[clamp(32px,5vw,64px)] max-md:px-6">
         {/* Heading */}
         <motion.div
-          className={styles.heading}
+          className="w-fit mx-auto mb-8 text-center py-[22px] px-10 max-sm:max-w-full max-sm:px-6 mt-8"
           initial={reduce ? {} : { opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className={styles.title}>Technical Skills</h1>
+          <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] font-extrabold text-black tracking-wide m-0">Technical Skills</h1>
         </motion.div>
 
         {/* Flowing Menu strip */}
-        <div className={styles.flowingMenuContainer}>
+        <div className="h-[350px] relative mx-auto mt-12 max-w-[1500px] w-full rounded-3xl overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.12)] max-md:h-[260px] max-md:mt-8 max-md:max-w-[900px] max-md:rounded-2xl">
           <FlowingMenu items={MENU_ITEMS} />
         </div>
       </div>

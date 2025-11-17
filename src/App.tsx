@@ -1,20 +1,18 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav/Nav'
-import Home from './components/home/Home'
-import Experience from './components/experience/Experience'
-import  Skills  from './components/skills/Skills'
+import Portfolio from './components/Portfolio'
 
+/**
+ * Single-page portfolio application.
+ * All sections (Home, Experience, Skills) are stacked vertically on one page.
+ * Navigation uses scroll-to-section instead of routing.
+ */
 function App() {
   return(
-    <Router>
+    <>
       <Nav/>
-      <Routes>
-        <Route path="/" element={<Home />} />;
-        <Route path="/experience" element={<Experience />} />;
-        <Route path = "/skills" element = {<Skills/>}/>;
-      </Routes>
-    </Router>
+      <Portfolio />
+    </>
   )
 }
 
