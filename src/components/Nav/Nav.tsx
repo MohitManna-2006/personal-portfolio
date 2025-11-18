@@ -1,51 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import styles from './Nav.module.css';
-import links from './links.json';
+import React, { useEffect, useState, useRef } from 'react';
+import PillNav from '../PillNav';
 import logo from '../../assets/logo.svg';
-
-type Link = {
-  id: number;
-  name: string;
-  url: string;
-};
-
-/**
- * Converts route paths to section IDs for scroll-to-section navigation
- * e.g., "/" -> "#home", "/experience" -> "#experience"
- */
-const pathToSectionId = (path: string): string => {
-  if (path === '/') return '#home';
-  if (path.startsWith('/')) {
-    return `#${path.slice(1).toLowerCase()}`;
-  }
-  return `#${path.toLowerCase()}`;
-};
-
-/**
- * Scrolls smoothly to a section by ID, accounting for fixed navbar height
- * Uses scroll-margin-top from the section element for proper offset
- */
-const scrollToSection = (sectionId: string) => {
-  const element = document.querySelector(sectionId);
-  if (element) {
-    // Use scrollIntoView with block: 'start' and let CSS scroll-margin-top handle the offset
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-  }
-};
 
 const Nav: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('#home');
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+  const lastScrollY = useRef<number>(0);
 
-  // Update active section based on scroll position
+  // Collapse/expand navbar on scroll
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollThreshold = 100; // Collapse after scrolling down 100px
+
+      if (currentScrollY < scrollThreshold) {
+        // Always show full navbar at top of page
+        setIsCollapsed(false);
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling down - collapse to logo
+        setIsCollapsed(true);
+      } else {
+        // Scrolling up - expand full navbar
+        setIsCollapsed(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+
+      // Update active section
       const sections = ['#home', '#experience', '#skills', '#contact'];
       const navbar = document.querySelector('nav') as HTMLElement | null;
       const navHeight = navbar?.offsetHeight ?? 72;
-      const scrollPosition = window.scrollY + navHeight + 100; // Add some offset
+      const scrollPosition = currentScrollY + navHeight + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.querySelector(sections[i]);
@@ -65,53 +50,39 @@ const Nav: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
-    e.preventDefault();
-    const sectionId = pathToSectionId(url);
-    scrollToSection(sectionId);
-  };
+  const navItems = [
+    { label: 'Experience', href: '#experience' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Contact', href: '#contact' }
+  ];
 
-  const isActive = (url: string): boolean => {
-    const sectionId = pathToSectionId(url);
-    return activeSection === sectionId;
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // Always scroll to top when logo is clicked
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    // Expand navbar when clicking logo
+    setIsCollapsed(false);
   };
 
   return (
-    <nav className={styles.navbar}>
-      <div className={styles['logo-container']}>
-        <a 
-          href="#home" 
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('#home');
-          }}
-        >
-          <img src={logo} alt="Logo" className={styles.logo} />
-        </a>
-      </div>
-
-      <div className={styles['links-container']}>
-        {links.map((link: Link) => {
-          const sectionId = pathToSectionId(link.url);
-          return (
-            <div key={link.id} className={styles.link}>
-              <a 
-                href={sectionId}
-                onClick={(e) => handleLinkClick(e, link.url)}
-                className={isActive(link.url) ? styles.activeLink : ''}
-              >
-                {link.name}
-              </a>
-            </div>
-          );
-        })}
-      </div>
-    </nav>
+    <PillNav
+      logo={logo}
+      logoAlt="Mohit Manna Logo"
+      items={navItems}
+      activeHref={activeSection}
+      ease="power2.easeOut"
+      baseColor="#000000"
+      pillColor="#ffffff"
+      hoveredPillTextColor="#ffffff"
+      pillTextColor="#000000"
+      initialLoadAnimation={true}
+      className={isCollapsed ? 'collapsed' : ''}
+      onLogoClick={handleLogoClick}
+    />
   );
 };
 
 export default Nav;
-
-
-
-

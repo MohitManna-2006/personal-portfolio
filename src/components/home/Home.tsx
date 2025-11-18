@@ -33,7 +33,7 @@ export const Home = () => {
             delay={0.3}
           >
             <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-extrabold text-black tracking-wide m-0">
-              Hi, I'm Mohit 👋
+              Hi, I'm Mohit Manna 👋
             </h1>
           </AnimatedContent>
         </div>
