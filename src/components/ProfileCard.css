@@ -383,7 +383,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 50px;
+  padding: 40px 50px 50px 50px;
   transform: translate3d(
     calc(var(--pointer-from-left) * -6px + 3px),
     calc(var(--pointer-from-top) * -6px + 3px),
@@ -396,10 +396,11 @@
 
 .pc-details {
   width: 100%;
+  max-width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
   overflow: visible;
 }
 
@@ -418,43 +419,60 @@
 }
 
 .pc-details .pc-title {
-  font-weight: 600;
+  font-weight: 700;
   position: relative;
   white-space: normal;
-  font-size: 19px;
-  margin: 4px 0 0 0;
-  color: #1a1a1a;
+  font-size: 28px;
+  margin: 0;
+  color: #000000;
   background-image: none;
-  -webkit-text-fill-color: #1a1a1a;
-  letter-spacing: -0.01em;
+  -webkit-text-fill-color: #000000;
+  letter-spacing: -0.015em;
   line-height: 1.4;
+  max-width: 100%;
 }
 
 .pc-details .pc-subtitle {
-  font-weight: 500;
+  font-weight: 700;
   position: relative;
   white-space: normal;
-  font-size: 17px;
-  margin: 10px 0 0 0;
-  color: #2a2a2a;
+  font-size: 28px;
+  margin: 6px 0 0 0;
+  color: #000000;
   background-image: none;
-  -webkit-text-fill-color: #2a2a2a;
-  letter-spacing: -0.005em;
-  line-height: 1.5;
+  -webkit-text-fill-color: #000000;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  max-width: 100%;
+}
+
+.pc-details .pc-currently {
+  font-weight: 400;
+  position: relative;
+  white-space: normal;
+  font-size: 20px;
+  margin: 16px 0 0 0;
+  color: rgba(0, 0, 0, 0.75);
+  background-image: none;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.75);
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  font-style: italic;
 }
 
 .pc-details .pc-involvement {
   font-weight: 400;
   position: relative;
   white-space: normal;
-  font-size: 16px;
-  margin: 14px 0 0 0;
-  color: #3a3a3a;
+  font-size: 18px;
+  margin: 20px 0 0 0;
+  color: rgba(0, 0, 0, 0.65);
   background-image: none;
-  -webkit-text-fill-color: #3a3a3a;
-  line-height: 1.7;
-  letter-spacing: 0.01em;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.65);
+  line-height: 1.6;
+  letter-spacing: 0.005em;
 }
+
 
 @keyframes glow-bg {
   0% {
@@ -492,7 +510,7 @@
   }
 
   .pc-content:not(.pc-avatar-content) {
-    padding: 30px 35px;
+    padding: 30px 35px 40px 35px;
   }
 
   .pc-details {
@@ -513,18 +531,23 @@
   }
 
   .pc-details .pc-title {
-    font-size: 16px;
-    margin: 2px 0 0 0;
+    font-size: 22px;
+    margin: 0;
   }
 
   .pc-details .pc-subtitle {
-    font-size: 15px;
-    margin: 6px 0 0 0;
+    font-size: 22px;
+    margin: 5px 0 0 0;
+  }
+
+  .pc-details .pc-currently {
+    font-size: 17px;
+    margin: 14px 0 0 0;
   }
 
   .pc-details .pc-involvement {
-    font-size: 13px;
-    margin: 4px 0 0 0;
+    font-size: 16px;
+    margin: 16px 0 0 0;
   }
 
   .pc-user-info {
@@ -566,7 +589,7 @@
   }
 
   .pc-content:not(.pc-avatar-content) {
-    padding: 24px 20px;
+    padding: 24px 20px 32px 20px;
   }
 
   .pc-avatar-content {
@@ -592,20 +615,25 @@
   }
 
   .pc-details .pc-title {
-    font-size: 13px;
+    font-size: 20px;
     margin: 0;
     line-height: 1.4;
   }
 
   .pc-details .pc-subtitle {
-    font-size: 12px;
+    font-size: 20px;
     margin: 4px 0 0 0;
     line-height: 1.4;
   }
 
+  .pc-details .pc-currently {
+    font-size: 16px;
+    margin: 12px 0 0 0;
+  }
+
   .pc-details .pc-involvement {
-    font-size: 11px;
-    margin: 4px 0 0 0;
+    font-size: 15px;
+    margin: 14px 0 0 0;
     line-height: 1.4;
   }
 
@@ -649,7 +677,7 @@
   }
 
   .pc-content:not(.pc-avatar-content) {
-    padding: 20px 16px;
+    padding: 20px 16px 28px 16px;
   }
 
   .pc-avatar-content {
@@ -675,18 +703,23 @@
   }
 
   .pc-details .pc-title {
-    font-size: 12px;
+    font-size: 18px;
     margin: 0;
   }
 
   .pc-details .pc-subtitle {
-    font-size: 11px;
+    font-size: 18px;
     margin: 3px 0 0 0;
   }
 
+  .pc-details .pc-currently {
+    font-size: 15px;
+    margin: 10px 0 0 0;
+  }
+
   .pc-details .pc-involvement {
-    font-size: 10px;
-    margin: 3px 0 0 0;
+    font-size: 14px;
+    margin: 12px 0 0 0;
   }
 
   .pc-user-info {

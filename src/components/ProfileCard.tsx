@@ -18,6 +18,7 @@ interface ProfileCardProps {
   title?: string;
   subtitle?: string;
   involvement?: string;
+  currently?: string;
   handle?: string;
   status?: string;
   contactText?: string;
@@ -57,6 +58,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   title = 'Software Engineer',
   subtitle,
   involvement,
+  currently,
   handle = 'javicodes',
   status = 'Online',
   contactText = 'Contact',
@@ -385,9 +387,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
             </div>
             <div className="pc-content">
               <div className="pc-details">
-                <h3>{name}</h3>
+                {name && <h3>{name}</h3>}
                 <p className="pc-title">{title}</p>
                 {subtitle && <p className="pc-subtitle">{subtitle}</p>}
+                {currently && <p className="pc-currently">{currently}</p>}
                 {involvement && <p className="pc-involvement">{involvement}</p>}
               </div>
             </div>

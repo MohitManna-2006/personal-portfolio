@@ -11,32 +11,32 @@ type Skill = {
 
 const SKILLS: Skill[] = [
   // Languages
-  { name: "TypeScript", category: "Languages" },
-  { name: "Python", category: "Languages" },
-  { name: "Java", category: "Languages" },
-  { name: "C", category: "Languages" },
-  { name: "C++", category: "Languages" },
-  { name: "SQL", category: "Languages" },
+  { name: "TypeScript •", category: "Languages" },
+  { name: "Python •", category: "Languages" },
+  { name: "Java •", category: "Languages" },
+  { name: "C •", category: "Languages" },
+  { name: "C++ •", category: "Languages" },
+  { name: "SQL •", category: "Languages" },
 
   // Frameworks
-  { name: "React", category: "Frameworks" },
-  { name: "Next.js", category: "Frameworks" },
-  { name: "React-Native", category: "Frameworks" },
-  { name: "Node.js", category: "Frameworks" },
-  { name: "Express", category: "Frameworks" },
-  { name: "PyTorch", category: "Frameworks" },
-  { name: "TensorFlow", category: "Frameworks"},
+  { name: "React •", category: "Frameworks" },
+  { name: "Next.js •", category: "Frameworks" },
+  { name: "React-Native •", category: "Frameworks" },
+  { name: "Node.js •", category: "Frameworks" },
+  { name: "Express •", category: "Frameworks" },
+  { name: "PyTorch •", category: "Frameworks" },
+  { name: "TensorFlow •", category: "Frameworks"},
 
   // Tools
-  { name: "Git", category: "Tools" },
-  { name: "Docker", category: "Tools" },
-  { name: "Jenkins", category: "Tools"},
-  { name: "Linux", category: "Tools"},
+  { name: "Git •", category: "Tools" },
+  { name: "Docker •", category: "Tools" },
+  { name: "Jenkins •", category: "Tools"},
+  { name: "Linux •", category: "Tools"},
 
   // Databases
-  { name: "PostgreSQL", category: "Databases" },
-  { name: "MongoDB", category: "Databases" },
-  { name: "Supabase", category: "Databases" },
+  { name: "PostgreSQL •", category: "Databases" },
+  { name: "MongoDB •", category: "Databases" },
+  { name: "Supabase •", category: "Databases" },
 ];
 
 // items for the Flowing Menu – 4 sections
