@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, ReactNode } from 'react';
+import { useRef, useEffect, type FC, type ReactNode } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -19,7 +19,7 @@ interface AnimatedContentProps {
   onComplete?: () => void;
 }
 
-const AnimatedContent: React.FC<AnimatedContentProps> = ({
+const AnimatedContent: FC<AnimatedContentProps> = ({
   children,
   distance = 100,
   direction = 'vertical',
