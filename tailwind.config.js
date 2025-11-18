@@ -91,10 +91,20 @@ module.exports = {
   				'0%': { transform: 'scaleX(0.1)', opacity: '0.6' },
   				'100%': { transform: 'scaleX(1)', opacity: '1' }
   			},
-  			pulse: {
-  				'0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
-  				'50%': { opacity: '0.85', transform: 'scale(1.05)' }
-  			}
+			pulse: {
+				'0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+				'50%': { opacity: '0.85', transform: 'scale(1.05)' }
+			},
+			'pulse-glow': {
+				'0%, 100%': { 
+					opacity: '0.4',
+					boxShadow: '0 0 8px rgba(99, 102, 241, 0.4), 0 0 16px rgba(99, 102, 241, 0.2)'
+				},
+				'50%': { 
+					opacity: '0.7',
+					boxShadow: '0 0 16px rgba(99, 102, 241, 0.6), 0 0 24px rgba(99, 102, 241, 0.4)'
+				}
+			}
   		},
   		animation: {
   			fadeIn: 'fadeIn 0.2s ease-out',
@@ -106,7 +116,8 @@ module.exports = {
   			float: 'float 4s ease-in-out infinite',
   			scaleFadeIn: 'scaleFadeIn 0.54s cubic-bezier(0.2,0.8,0.2,1)',
   			underlineGrow: 'underlineGrow 600ms cubic-bezier(0.2,0.8,0.2,1) 120ms forwards',
-  			pulse: 'pulse 3.8s ease-in-out infinite'
+  			pulse: 'pulse 3.8s ease-in-out infinite',
+			'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
   		}
   	}
   },

@@ -39,6 +39,20 @@
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .menu__item-link {
+    font-size: 3vh;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu__item-link {
+    font-size: 2.5vh;
+    letter-spacing: 0.08em;
+  }
+}
+
 .menu__item-link:hover {
   color: rgba(0, 0, 0, 1);
   letter-spacing: 0.15em;
@@ -90,6 +104,20 @@
   line-height: 1.2;
   padding: 0 12px; /* Minimal horizontal padding */
   opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .marquee__skill {
+    font-size: 1.5vh;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee__skill {
+    font-size: 1.2vh;
+    padding: 0 8px;
+  }
 }
 
 .marquee span {
