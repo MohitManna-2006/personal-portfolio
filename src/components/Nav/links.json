@@ -6,21 +6,16 @@
   },
   {
     "id": 2,
-    "name": "About",
-    "url": "/about"
-  },
-  {
-    "id": 3,
     "name": "Experience",
     "url": "/experience"
   },
   {
-    "id": 4,
-    "name": "Resume",
-    "url": "/resume"
+    "id": 3,
+    "name": "Skills",
+    "url": "/Skills"
   },
   {
-    "id": 5,
+    "id": 4,
     "name": "Contact",
     "url": "/contact"
   }

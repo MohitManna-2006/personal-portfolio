@@ -1,12 +1,17 @@
 import './App.css'
 import Nav from './components/Nav/Nav'
-import  Home  from './components/home/Home'
+import Portfolio from './components/Portfolio'
 
+/**
+ * Single-page portfolio application.
+ * All sections (Home, Experience, Skills) are stacked vertically on one page.
+ * Navigation uses scroll-to-section instead of routing.
+ */
 function App() {
   return(
     <>
       <Nav/>
-      <Home/>
+      <Portfolio />
     </>
   )
 }

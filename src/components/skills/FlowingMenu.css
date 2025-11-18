@@ -1,0 +1,127 @@
+.menu-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.menu__item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 -1px rgba(255, 255, 255, 0.1);
+}
+
+.menu__item-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  cursor: crosshair;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 700;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 4vh;
+  letter-spacing: 0.12em;
+  transition: opacity 0.3s ease, letter-spacing 0.3s ease, color 0.3s ease;
+  opacity: 1;
+}
+
+.menu__item-link:hover {
+  color: rgba(0, 0, 0, 1);
+  letter-spacing: 0.15em;
+  opacity: 0;
+  transition: opacity 0.3s ease, letter-spacing 0.3s ease, color 0.3s ease;
+}
+
+.menu__item-link:focus:not(:focus-visible) {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  transform: translate3d(0, 101%, 0);
+  transition: transform 0.6s ease-expo;
+}
+
+.marquee__inner-wrap {
+  height: 100%;
+  width: 200%;
+  display: flex;
+  transform: translateX(0);
+}
+
+.marquee__inner {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 200%;
+  will-change: transform;
+  animation: marquee 15s linear infinite;
+}
+
+/* Style for skills in marquee - smaller text, minimal padding */
+.marquee__skill {
+  color: rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 1.8vh; /* Much smaller than category name */
+  line-height: 1.2;
+  padding: 0 12px; /* Minimal horizontal padding */
+  opacity: 0.9;
+}
+
+.marquee span {
+  color: rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 4vh;
+  line-height: 1.2;
+  padding: 1vh 1vw 0;
+}
+
+.marquee__img {
+  width: 200px;
+  height: 7vh;
+  margin: 2em 2vw;
+  padding: 1em 0;
+  border-radius: 50px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.menu__item-link:hover + .marquee {
+  transform: translate3d(0, 0%, 0);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
