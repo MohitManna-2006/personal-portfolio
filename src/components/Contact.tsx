@@ -15,16 +15,16 @@ const Contact: React.FC = () => {
       {/* Content - transparent, showing global background through */}
       <div className="max-w-[800px] w-full mx-auto relative text-center px-4 max-sm:px-3">
         <AnimatedContent
-          distance={100}
-          direction="vertical"
+          distance={150}
+          direction="horizontal"
           reverse={false}
-          duration={1.0}
-          ease="power2.out"
-          initialOpacity={0.3}
+          duration={1.2}
+          ease="bounce.out"
+          initialOpacity={0.2}
           animateOpacity
-          scale={1.05}
+          scale={1.1}
           threshold={0.2}
-          delay={0.2}
+          delay={0.3}
         >
           <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-extrabold text-black tracking-wide m-0 mb-6 max-md:mb-4 max-sm:mb-3">
             Get In Touch

@@ -21,16 +21,16 @@ export const Home = () => {
         {/* Hero Heading - Combined */}
         <div className="mt-8 mb-8 w-full flex justify-center max-md:mt-6 max-md:mb-6 max-sm:mt-5 max-sm:mb-5">
           <AnimatedContent
-            distance={100}
-            direction="vertical"
+            distance={150}
+            direction="horizontal"
             reverse={false}
-            duration={1.0}
-            ease="power2.out"
-            initialOpacity={0.3}
+            duration={1.2}
+            ease="bounce.out"
+            initialOpacity={0.2}
             animateOpacity
-            scale={1.05}
+            scale={1.1}
             threshold={0.2}
-            delay={0.2}
+            delay={0.3}
           >
             <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-extrabold text-black tracking-wide m-0">
               Hi, I'm Mohit 👋
