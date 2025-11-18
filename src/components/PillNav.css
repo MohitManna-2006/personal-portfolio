@@ -89,14 +89,20 @@
   display: flex;
   align-items: center;
   height: var(--nav-h);
-  background: var(--base, #000);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 9999px;
   margin-left: var(--pill-gap);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
               transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               max-width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              padding 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+              padding 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background 0.3s ease,
+              box-shadow 0.3s ease;
   transform-origin: left center;
   transform: scaleX(1);
   width: auto;
@@ -105,23 +111,39 @@
   backface-visibility: hidden;
 }
 
+.pill-nav-items:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
 .pill-logo {
   width: var(--nav-h);
   height: var(--nav-h);
   border-radius: 50%;
-  background: var(--base, #000);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out, width 0.4s cubic-bezier(0.4, 0, 0.2, 1), height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, 
+              width 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease;
   flex-shrink: 0;
 }
 
 .pill-logo:hover {
   transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .pill-logo img {
@@ -152,8 +174,8 @@
   justify-content: center;
   height: 100%;
   padding: 0 var(--pill-pad-x);
-  background: var(--pill-bg, #fff);
-  color: var(--pill-text, var(--base, #000));
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--pill-text, #000);
   text-decoration: none;
   border-radius: 9999px;
   box-sizing: border-box;
@@ -166,6 +188,14 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pill:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .pill .hover-circle {
@@ -173,7 +203,7 @@
   left: 50%;
   bottom: 0;
   border-radius: 50%;
-  background: var(--base, #000);
+  background: rgba(0, 0, 0, 0.1);
   z-index: 1;
   display: block;
   pointer-events: none;
@@ -213,9 +243,10 @@
   transform: translateX(-50%);
   width: 12px;
   height: 12px;
-  background: var(--base, #000);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 50px;
   z-index: 4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .desktop-only {
@@ -244,8 +275,10 @@
   width: var(--nav-h);
   height: var(--nav-h);
   border-radius: 50%;
-  background: var(--base, #000);
-  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: none;
   flex-direction: column;
   align-items: center;
@@ -255,6 +288,14 @@
   padding: 0;
   position: relative;
   flex-shrink: 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mobile-menu-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -266,9 +307,9 @@
 .hamburger-line {
   width: 16px;
   height: 2px;
-  background: var(--pill-bg, #fff);
+  background: #000;
   border-radius: 1px;
-  transition: all 0.01s ease;
+  transition: all 0.3s ease;
   transform-origin: center;
 }
 
@@ -277,7 +318,10 @@
   top: calc(var(--nav-h, 64px) + 0.75em + 0.5em);
   left: 1rem;
   right: 1rem;
-  background: var(--base, #000);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 27px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   z-index: 998;
@@ -306,17 +350,20 @@
 .mobile-menu-popover .mobile-menu-link {
   display: block;
   padding: 12px 16px;
-  color: var(--pill-text, #fff);
-  background-color: var(--pill-bg, #fff);
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
   border-radius: 50px;
   transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .mobile-menu-popover .mobile-menu-link:hover {
   cursor: pointer;
-  background-color: var(--base);
-  color: var(--hover-text, #fff);
+  background-color: rgba(255, 255, 255, 1);
+  color: #000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

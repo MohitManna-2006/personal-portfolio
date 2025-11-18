@@ -45,7 +45,7 @@ export const Home = () => {
         >
           <ProfileCard
             name=""
-            title="Computer Engineering @ Purdue University"
+            title="Computer Engineering @ Purdue"
             subtitle="Aspiring Software Engineer"
             involvement="Involved in: Data Mine | Vertically Integrated Projects | Purdue Stack"
             currently="Enthusiastic about building software solutions."
