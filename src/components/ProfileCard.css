@@ -35,6 +35,21 @@
   transform: translate3d(0, 0, 0.1px);
   position: relative;
   touch-action: none;
+  max-width: 100%;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .pc-card-wrapper {
+    max-width: calc(100vw - 24px);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .pc-card-wrapper {
+    max-width: calc(100vw - 16px);
+  }
 }
 
 .pc-behind {
@@ -466,6 +481,8 @@
   .pc-card {
     height: 70svh;
     max-height: 450px;
+    aspect-ratio: 2.2;
+    max-width: 100%;
   }
 
   .pc-details {
@@ -510,8 +527,12 @@
 
 @media (max-width: 480px) {
   .pc-card {
-    height: 60svh;
-    max-height: 380px;
+    height: auto;
+    min-height: 60svh;
+    max-height: none;
+    aspect-ratio: 1.8;
+    max-width: 100%;
+    width: 100%;
   }
 
   .pc-details {
@@ -558,8 +579,12 @@
 
 @media (max-width: 320px) {
   .pc-card {
-    height: 55svh;
-    max-height: 320px;
+    height: auto;
+    min-height: 55svh;
+    max-height: none;
+    aspect-ratio: 1.6;
+    max-width: 100%;
+    width: 100%;
   }
 
   .pc-details h3 {

@@ -16,14 +16,14 @@ export const Home = () => {
   return (
     <div className="min-h-screen pt-[72px] pb-12 flex items-center justify-center relative max-md:pt-[64px] max-md:pb-8">
       {/* Content - transparent, showing global background through */}
-      <div className="max-w-[1200px] w-full px-8 max-md:px-4 max-sm:px-3 relative flex flex-col items-center">
+      <div className="max-w-[1200px] w-full px-8 max-md:px-4 max-sm:px-2 relative flex flex-col items-center">
         <div className="mb-6 w-full flex justify-center max-md:mb-4">
           <span className="text-4xl md:text-5xl max-md:text-3xl max-sm:text-2xl font-extrabold text-black tracking-wide animate-fadeInUp">Hi, I'm</span>
         </div>
         
         {/* ProfileCard */}
         <div 
-          className="mb-12 w-full max-w-[1100px] mx-auto max-md:mb-8 max-sm:mb-6"
+          className="mb-12 w-full max-w-[1100px] max-md:max-w-full max-sm:max-w-full mx-auto max-md:mb-8 max-sm:mb-6 max-sm:px-0"
           style={{ animation: 'fadeInUp 0.8s ease-out 0.4s both' }}
         >
           <ProfileCard
@@ -42,7 +42,7 @@ export const Home = () => {
             onContactClick={handleContactClick}
             behindGlowEnabled={false}
             behindGlowColor="rgba(74, 179, 244, 0.67)"
-            className="w-full"
+            className="w-full max-sm:w-[calc(100vw-24px)] max-sm:mx-auto"
           />
         </div>
         
