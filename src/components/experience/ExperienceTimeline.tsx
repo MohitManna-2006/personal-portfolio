@@ -12,7 +12,7 @@ export default function ExperienceTimeline({
   onTimelineClick,
 }: ExperienceTimelineProps) {
   return (
-    <aside className="pl-0 -ml-[280px] mr-[280px] max-md:ml-0 max-md:mr-0">
+    <aside className="pl-0 -ml-[320px] mr-[320px] max-md:ml-0 max-md:mr-0">
       <div className="sticky top-[calc(var(--nav-height,72px)+18px)] bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-5 pb-[18px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] max-md:static max-sm:px-4">
         <h2 className="text-[1.05rem] font-bold text-black my-[10px] mx-[100px] flex justify-center">
           Timeline

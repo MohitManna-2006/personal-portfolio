@@ -176,9 +176,9 @@ export default function Experience() {
   return (
     <main className="pt-[calc(var(--nav-height,72px)+24px)] pb-12 px-[clamp(16px,5vw,48px)] max-md:pt-[calc(var(--nav-height,72px)+16px)] max-md:pb-8 font-['Inter',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-[#020617] relative">
       {/* Content - transparent, showing global background through */}
-      <div className="max-w-[1100px] mx-auto relative px-[clamp(24px,8vw,120px)] max-md:px-4">
+      <div className="max-w-[1400px] mx-auto relative px-[clamp(32px,6vw,80px)] max-md:px-4">
         <ExperienceHeader />
-        <div className="mt-8 grid grid-cols-[280px_minmax(0,1fr)] items-start w-full justify-center gap-8 max-md:grid-cols-1 max-md:gap-8">
+        <div className="mt-8 grid grid-cols-[320px_minmax(0,1fr)] items-start w-full justify-center gap-12 max-md:grid-cols-1 max-md:gap-8">
           <ExperienceTimeline
             experiences={EXPERIENCES}
             activeId={activeId}
