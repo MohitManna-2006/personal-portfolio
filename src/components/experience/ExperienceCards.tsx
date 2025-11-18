@@ -26,7 +26,7 @@ export default function ExperienceCards({
   cardRefs,
 }: ExperienceCardsProps) {
   return (
-    <section className="flex flex-col gap-5 -ml-[225px] max-md:ml-0 max-md:gap-[18px]">
+    <section className="flex flex-col gap-5 -ml-[180px] max-md:ml-0 max-md:gap-[18px]">
       {experiences.map((exp, index) => {
         const isActive = exp.id === activeId;
         return (
