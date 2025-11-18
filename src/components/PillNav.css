@@ -189,25 +189,39 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pill:hover {
-  background: rgba(255, 255, 255, 1);
+  color: #000;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.pill:hover .pill-label {
+  color: #000;
+}
+
+.pill:hover .pill-label-hover {
+  color: #000;
+}
+
 .pill .hover-circle {
   position: absolute;
-  left: 50%;
+  left: 0;
+  top: 0;
+  right: 0;
   bottom: 0;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0);
   z-index: 1;
   display: block;
   pointer-events: none;
-  will-change: transform;
+  will-change: transform, background;
+  transform: scale(0);
+  transform-origin: center;
 }
 
 .pill .label-stack {
@@ -223,16 +237,20 @@
   display: inline-block;
   line-height: 1;
   will-change: transform;
+  color: #000;
+  transition: color 0.3s ease;
 }
 
 .pill .pill-label-hover {
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--hover-text, #fff);
+  color: #fff;
   z-index: 3;
   display: inline-block;
   will-change: transform, opacity;
+  opacity: 0;
+  transition: color 0.3s ease;
 }
 
 .pill.is-active::after {

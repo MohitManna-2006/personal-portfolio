@@ -15,7 +15,7 @@ export const Home = () => {
   };
 
   return (
-    <div className="min-h-screen pt-[72px] pb-12 flex items-center justify-center relative max-md:pt-[64px] max-md:pb-8">
+    <div className="min-h-screen pt-[72px] pb-4 flex items-center justify-center relative max-md:pt-[64px] max-md:pb-3">
       {/* Content - transparent, showing global background through */}
       <div className="max-w-[1200px] w-full px-8 max-md:px-4 max-sm:px-2 relative flex flex-col items-center">
         {/* Hero Heading - Combined */}
