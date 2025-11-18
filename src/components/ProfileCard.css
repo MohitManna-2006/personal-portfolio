@@ -376,7 +376,7 @@
 
 .pc-content:not(.pc-avatar-content) {
   max-height: 100%;
-  overflow: hidden;
+  overflow: visible;
   text-align: left;
   position: relative;
   flex: 1;
@@ -391,6 +391,7 @@
   );
   z-index: 5;
   mix-blend-mode: normal;
+  min-width: 0;
 }
 
 .pc-details {
@@ -399,6 +400,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  overflow: visible;
 }
 
 .pc-details h3 {
@@ -410,6 +412,9 @@
   -webkit-text-fill-color: #000000;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .pc-details .pc-title {
@@ -479,22 +484,47 @@
 
 @media (max-width: 768px) {
   .pc-card {
-    height: 70svh;
-    max-height: 450px;
-    aspect-ratio: 2.2;
+    height: auto;
+    min-height: 65svh;
+    max-height: 420px;
+    aspect-ratio: 2.0;
     max-width: 100%;
   }
 
+  .pc-content:not(.pc-avatar-content) {
+    padding: 30px 35px;
+  }
+
   .pc-details {
-    top: 2em;
+    top: 1.5em;
+    gap: 10px;
   }
 
   .pc-details h3 {
-    font-size: min(4svh, 2.5em);
+    font-size: min(3.5svh, 2.2em);
+    line-height: 1.15;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .pc-details p {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .pc-details .pc-title {
+    font-size: 16px;
+    margin: 2px 0 0 0;
+  }
+
+  .pc-details .pc-subtitle {
+    font-size: 15px;
+    margin: 6px 0 0 0;
+  }
+
+  .pc-details .pc-involvement {
+    font-size: 13px;
+    margin: 4px 0 0 0;
   }
 
   .pc-user-info {
@@ -528,24 +558,55 @@
 @media (max-width: 480px) {
   .pc-card {
     height: auto;
-    min-height: 60svh;
-    max-height: none;
-    aspect-ratio: 1.8;
+    min-height: 55svh;
+    max-height: 380px;
+    aspect-ratio: 1.6;
     max-width: 100%;
     width: 100%;
   }
 
+  .pc-content:not(.pc-avatar-content) {
+    padding: 24px 20px;
+  }
+
+  .pc-avatar-content {
+    flex: 0 0 35%;
+  }
+
   .pc-details {
-    top: 1.5em;
+    top: 1em;
+    gap: 8px;
   }
 
   .pc-details h3 {
-    font-size: min(3.5svh, 2em);
+    font-size: min(3svh, 1.8em);
+    line-height: 1.1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: 2px;
   }
 
   .pc-details p {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .pc-details .pc-title {
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .pc-details .pc-subtitle {
     font-size: 12px;
-    top: -8px;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+  }
+
+  .pc-details .pc-involvement {
+    font-size: 11px;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
   }
 
   .pc-user-info {
@@ -580,19 +641,52 @@
 @media (max-width: 320px) {
   .pc-card {
     height: auto;
-    min-height: 55svh;
-    max-height: none;
-    aspect-ratio: 1.6;
+    min-height: 50svh;
+    max-height: 340px;
+    aspect-ratio: 1.4;
     max-width: 100%;
     width: 100%;
   }
 
+  .pc-content:not(.pc-avatar-content) {
+    padding: 20px 16px;
+  }
+
+  .pc-avatar-content {
+    flex: 0 0 32%;
+  }
+
+  .pc-details {
+    top: 0.5em;
+    gap: 6px;
+  }
+
   .pc-details h3 {
-    font-size: min(3svh, 1.5em);
+    font-size: min(2.5svh, 1.5em);
+    line-height: 1.1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: 2px;
   }
 
   .pc-details p {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  .pc-details .pc-title {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .pc-details .pc-subtitle {
     font-size: 11px;
+    margin: 3px 0 0 0;
+  }
+
+  .pc-details .pc-involvement {
+    font-size: 10px;
+    margin: 3px 0 0 0;
   }
 
   .pc-user-info {
