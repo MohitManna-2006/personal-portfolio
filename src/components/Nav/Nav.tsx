@@ -12,6 +12,14 @@ const Nav: React.FC = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const scrollThreshold = 100; // Collapse after scrolling down 100px
+      const isMobile = window.innerWidth <= 768;
+
+      // On mobile, don't collapse the navbar
+      if (isMobile) {
+        setIsCollapsed(false);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
 
       if (currentScrollY < scrollThreshold) {
         // Always show full navbar at top of page

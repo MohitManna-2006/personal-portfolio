@@ -129,15 +129,21 @@ const PillNav: React.FC<PillNavProps> = ({
       }
 
       if (navItems && initialLoadAnimation) {
-        // Only animate on initial load, let CSS handle collapse/expand
-        gsap.set(navItems, { opacity: 0, scaleX: 0, transformOrigin: 'left center' });
-        gsap.to(navItems, {
-          opacity: 1,
-          scaleX: 1,
-          duration: 0.6,
-          ease,
-          delay: 0.1
-        });
+        // Only animate on initial load for desktop, skip on mobile
+        const isMobile = window.innerWidth <= 768;
+        if (!isMobile) {
+          gsap.set(navItems, { opacity: 0, scaleX: 0, transformOrigin: 'left center' });
+          gsap.to(navItems, {
+            opacity: 1,
+            scaleX: 1,
+            duration: 0.6,
+            ease,
+            delay: 0.1
+          });
+        } else {
+          // On mobile, just ensure it's visible (though it will be hidden by CSS)
+          gsap.set(navItems, { opacity: 1, scaleX: 1 });
+        }
       }
     }
 
@@ -317,7 +323,7 @@ const PillNav: React.FC<PillNavProps> = ({
         </button>
       </nav>
 
-      <div className="mobile-menu-popover mobile-only" ref={mobileMenuRef} style={cssVars}>
+      <div className={`mobile-menu-popover mobile-only ${isMobileMenuOpen ? 'is-open' : ''}`} ref={mobileMenuRef} style={cssVars}>
         <ul className="mobile-menu-list">
           {items.map(item => (
             <li key={item.href}>

@@ -19,7 +19,7 @@ export const Home = () => {
       {/* Content - transparent, showing global background through */}
       <div className="max-w-[1200px] w-full px-8 max-md:px-4 max-sm:px-2 relative flex flex-col items-center">
         {/* Hero Heading - Combined */}
-        <div className="mt-8 mb-8 w-full flex justify-center max-md:mt-6 max-md:mb-6 max-sm:mt-5 max-sm:mb-5">
+        <div className="mt-16 mb-8 w-full flex justify-center max-md:mt-12 max-md:mb-6 max-sm:mt-10 max-sm:mb-5">
           <AnimatedContent
             distance={150}
             direction="horizontal"
@@ -32,7 +32,7 @@ export const Home = () => {
             threshold={0.2}
             delay={0.3}
           >
-            <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-extrabold text-black tracking-wide m-0">
+            <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-light tracking-tight m-0 text-black" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 300, letterSpacing: '-0.02em' }}>
               Hi, I'm Mohit Manna 👋
             </h1>
           </AnimatedContent>
