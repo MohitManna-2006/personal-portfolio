@@ -18,7 +18,7 @@ export const Home = () => {
       {/* Content - transparent, showing global background through */}
       <div className="max-w-[1200px] w-full px-8 max-md:px-4 max-sm:px-2 relative flex flex-col items-center">
         {/* Hero Heading - Combined */}
-        <div className="mb-8 w-full flex justify-center max-md:mb-6 max-sm:mb-5">
+        <div className="mt-8 mb-8 w-full flex justify-center max-md:mt-6 max-md:mb-6 max-sm:mt-5 max-sm:mb-5">
           <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-extrabold text-black tracking-wide animate-fadeInUp m-0">
             Hi, I'm Mohit 👋
           </h1>
