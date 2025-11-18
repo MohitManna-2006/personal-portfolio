@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import resumePdf from "../../assets/resume.pdf";
 import ProfileCard from "../ProfileCard";
 import profilePic from "../../assets/images/profilePic.png";
@@ -7,8 +7,24 @@ import AnimatedContent from "../AnimatedContent";
 export const Home = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
-  const openResume = () => setIsResumeOpen(true);
-  const closeResume = () => setIsResumeOpen(false);
+  const openResume = () => {
+    setIsResumeOpen(true);
+    // Hide navbar when resume is open
+    document.body.classList.add('resume-open');
+  };
+  
+  const closeResume = () => {
+    setIsResumeOpen(false);
+    // Show navbar when resume is closed
+    document.body.classList.remove('resume-open');
+  };
+
+  // Cleanup: remove class on unmount
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove('resume-open');
+    };
+  }, []);
   
   const handleContactClick = () => {
     window.location.href = 'mailto:mannamohit542@gmail.com';
