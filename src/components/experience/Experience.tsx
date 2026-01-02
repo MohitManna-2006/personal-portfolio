@@ -9,7 +9,7 @@ const EXPERIENCES: Experience[] = [
     id: "caterpillar",
     company: "Caterpillar (Data-Mine)",
     role: "Data Science Researcher – GEN AI Team",
-    period: "AUG 2024 – Present",
+    period: "AUG 2025 – Present",
     timelineLabel: "2025 • AI/ML · Data Science",
     bullets: [
       "Built decoder transformer models to forecast equipment demand, improving accuracy by 15%.",
