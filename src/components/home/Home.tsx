@@ -49,7 +49,7 @@ export const Home = () => {
             delay={0.3}
           >
             <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-light tracking-tight m-0 text-black" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 300, letterSpacing: '-0.02em' }}>
-              Hi, I'm Mohit Manna 👋
+              Hi, I'm Mohit Manna <span className="wave-hand-emoji">👋</span>
             </h1>
           </AnimatedContent>
         </div>
