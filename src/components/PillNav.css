@@ -96,10 +96,10 @@ body.resume-open .pill-nav-container {
   display: flex;
   align-items: center;
   height: var(--nav-h);
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(226, 232, 240, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 9999px;
   margin-left: var(--pill-gap);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -119,7 +119,7 @@ body.resume-open .pill-nav-container {
 }
 
 .pill-nav-items:hover {
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -127,10 +127,10 @@ body.resume-open .pill-nav-container {
   width: var(--nav-h);
   height: var(--nav-h);
   border-radius: 50%;
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(226, 232, 240, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 12px;
   display: inline-flex;
   align-items: center;
@@ -149,7 +149,7 @@ body.resume-open .pill-nav-container {
 
 .pill-logo:hover {
   transform: scale(1.05);
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -181,7 +181,7 @@ body.resume-open .pill-nav-container {
   justify-content: center;
   height: 100%;
   padding: 0 var(--pill-pad-x);
-  background: rgba(15, 23, 42, 0.92);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--pill-text, #000);
   text-decoration: none;
   border-radius: 9999px;
@@ -195,22 +195,22 @@ body.resume-open .pill-nav-container {
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(226, 232, 240, 0.14);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pill:hover {
-  color: var(--pill-text, #e2e8f0);
+  color: #000;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .pill:hover .pill-label {
-  color: var(--pill-text, #e2e8f0);
+  color: #000;
 }
 
 .pill:hover .pill-label-hover {
-  color: var(--pill-text, #e2e8f0);
+  color: #000;
 }
 
 .pill .hover-circle {
@@ -244,7 +244,7 @@ body.resume-open .pill-nav-container {
   display: inline-block;
   line-height: 1;
   will-change: transform;
-  color: var(--pill-text, #e2e8f0);
+  color: #000;
   transition: color 0.3s ease;
 }
 
@@ -300,10 +300,10 @@ body.resume-open .pill-nav-container {
   width: var(--nav-h);
   height: var(--nav-h);
   border-radius: 50%;
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(226, 232, 240, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: none;
   flex-direction: column;
   align-items: center;
@@ -318,7 +318,7 @@ body.resume-open .pill-nav-container {
 }
 
 .mobile-menu-button:hover {
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(255, 255, 255, 0.2);
   transform: scale(1.05);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
@@ -343,10 +343,10 @@ body.resume-open .pill-nav-container {
   top: calc(var(--nav-h, 64px) + 0.75em + 0.5em);
   left: 1rem;
   right: 1rem;
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(226, 232, 240, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 27px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   z-index: 998;
@@ -375,20 +375,20 @@ body.resume-open .pill-nav-container {
 .mobile-menu-popover .mobile-menu-link {
   display: block;
   padding: 12px 16px;
-  color: var(--pill-text, #e2e8f0);
+  color: #000;
   background-color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
   border-radius: 50px;
   transition: all 0.2s ease;
-  border: 1px solid rgba(226, 232, 240, 0.14);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .mobile-menu-popover .mobile-menu-link:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 1);
-  color: var(--pill-text, #e2e8f0);
+  color: #000;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
