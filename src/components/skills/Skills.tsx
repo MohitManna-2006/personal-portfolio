@@ -65,7 +65,7 @@ const MENU_ITEMS = [
 
 const Skills: React.FC = () => {
   return (
-    <div className="pt-[calc(var(--nav-height,72px)+24px)] pb-12 px-[clamp(16px,5vw,48px)] max-md:pt-[calc(var(--nav-height,64px)+16px)] max-md:pb-8 max-sm:pt-[calc(var(--nav-height,64px)+12px)] max-sm:pb-6 max-sm:px-3 font-['Inter',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-[#020617] relative">
+    <div className="pt-[calc(var(--nav-height,72px)+24px)] pb-12 px-[clamp(16px,5vw,48px)] max-md:pt-[calc(var(--nav-height,64px)+16px)] max-md:pb-8 max-sm:pt-[calc(var(--nav-height,64px)+12px)] max-sm:pb-6 max-sm:px-3 font-['Inter',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-slate-100 relative">
       {/* Content - transparent, showing global background through */}
       <div className="max-w-[1500px] w-full mx-auto relative px-[clamp(32px,5vw,64px)] max-md:px-6 max-sm:px-4">
         {/* Heading */}
@@ -82,12 +82,13 @@ const Skills: React.FC = () => {
             threshold={0.2}
             delay={0.3}
           >
-            <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-extrabold text-black tracking-wide m-0">Technical Skills</h1>
+            <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-bold tracking-tight text-transparent bg-gradient-to-r from-cyan-200 via-slate-100 to-violet-200 bg-clip-text m-0">Technical Skills</h1>
+          <p className="mt-3 text-base text-slate-300 md:text-lg">A modern toolkit spanning product, backend, and ML workflows.</p>
           </AnimatedContent>
         </div>
 
         {/* Flowing Menu strip */}
-        <div className="h-[350px] max-md:h-[280px] max-sm:h-[240px] relative mx-auto mt-12 max-md:mt-8 max-sm:mt-6 max-w-[1500px] w-full rounded-3xl max-md:rounded-2xl max-sm:rounded-xl overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
+        <div className="h-[350px] max-md:h-[280px] max-sm:h-[240px] relative mx-auto mt-12 max-md:mt-8 max-sm:mt-6 max-w-[1500px] w-full rounded-3xl max-md:rounded-2xl max-sm:rounded-xl overflow-hidden bg-slate-900/60 backdrop-blur-xl border border-slate-200/10 shadow-[0_14px_45px_rgba(2,6,23,0.45)]">
           <FlowingMenu items={MENU_ITEMS} />
         </div>
       </div>
