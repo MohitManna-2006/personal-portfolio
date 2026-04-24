@@ -160,7 +160,7 @@ const PillNav: React.FC<PillNavProps> = ({
       
       // Ensure default label is visible
       if (label) {
-        gsap.set(label, { opacity: 1, color: resolvedPillTextColor, y: 0 });
+        gsap.set(label, { opacity: 1, color: '#000', y: 0 });
       }
       // Ensure hover label is hidden
       if (white) {
@@ -169,7 +169,7 @@ const PillNav: React.FC<PillNavProps> = ({
       // Reset circle
       gsap.set(circle, { scale: 0, background: 'rgba(0, 0, 0, 0)' });
     });
-  }, [activeHref, resolvedPillTextColor]);
+  }, [activeHref]);
 
   const handleEnter = (i: number) => {
     const tl = tlRefs.current[i];
@@ -202,7 +202,7 @@ const PillNav: React.FC<PillNavProps> = ({
         
         // Force reset labels to ensure they're visible
         if (label) {
-          gsap.set(label, { opacity: 1, color: resolvedPillTextColor });
+          gsap.set(label, { opacity: 1, color: '#000' });
         }
         if (white) {
           gsap.set(white, { opacity: 0, color: '#fff' });

@@ -7,10 +7,10 @@ interface ExperienceHeaderProps {
 
 export default function ExperienceHeader({
   title = "Experience",
-  subtitle = "A quick reel of product, research, and engineering work.",
+  subtitle = "A quick reel of some of my past work.",
 }: ExperienceHeaderProps) {
   return (
-    <header className="mx-auto mb-8 w-fit max-w-3xl text-center">
+    <header className="w-fit mx-auto mb-8 max-md:mb-6 max-sm:mb-4 text-center py-[22px] px-10 max-md:py-4 max-md:px-6 max-sm:py-3 max-sm:px-4 max-sm:max-w-full">
       <AnimatedContent
         distance={150}
         direction="horizontal"
@@ -23,11 +23,14 @@ export default function ExperienceHeader({
         threshold={0.2}
         delay={0.3}
       >
-        <h2 className="m-0 bg-gradient-to-r from-cyan-200 via-slate-100 to-violet-200 bg-clip-text text-[clamp(2.2rem,2rem+2vw,3.4rem)] font-bold tracking-tight text-transparent">
+        <h1 className="text-[clamp(2.5rem,2rem+2vw,3.5rem)] max-md:text-[clamp(2rem,1.5rem+2vw,2.5rem)] max-sm:text-[clamp(1.75rem,1.25rem+2vw,2rem)] font-extrabold text-black tracking-wide m-0">
           {title}
-        </h2>
+        </h1>
       </AnimatedContent>
-      <p className="mt-3 text-base font-medium text-slate-300 md:text-lg">{subtitle}</p>
+      <p className="mt-[10px] max-md:mt-2 max-sm:mt-1.5 text-xl md:text-2xl max-md:text-lg max-sm:text-base font-medium text-[rgba(0,0,0,0.7)]">
+        {subtitle}
+      </p>
     </header>
   );
 }
+
