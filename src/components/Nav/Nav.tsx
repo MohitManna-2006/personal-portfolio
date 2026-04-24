@@ -82,10 +82,10 @@ const Nav: React.FC = () => {
       items={navItems}
       activeHref={activeSection}
       ease="power2.easeOut"
-      baseColor="#000000"
-      pillColor="#ffffff"
-      hoveredPillTextColor="#ffffff"
-      pillTextColor="#000000"
+      baseColor="#e2e8f0"
+      pillColor="#0f172a"
+      hoveredPillTextColor="#e2e8f0"
+      pillTextColor="#e2e8f0"
       initialLoadAnimation={true}
       className={isCollapsed ? 'collapsed' : ''}
       onLogoClick={handleLogoClick}
