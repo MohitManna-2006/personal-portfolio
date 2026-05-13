@@ -42,12 +42,12 @@ export function WorkItem({ item, isOpen, onToggle, panelId }: Props) {
             </p>
           </div>
 
-          <div className="col-span-12 md:col-span-4 flex flex-col gap-3 md:items-end">
-            <div className="flex flex-wrap gap-2 md:justify-end">
+          <div className="col-span-12 md:col-span-4 flex flex-col gap-3 md:items-end min-w-0">
+            <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-1.5 md:justify-end max-w-full">
               {item.technologies.slice(0, 5).map((t) => (
                 <span
                   key={t}
-                  className="font-mono text-[10px] tracking-[0.14em] uppercase text-[var(--text-secondary)] px-2 py-1 border border-[var(--line)]"
+                  className="font-mono text-[10px] tracking-[0.14em] md:tracking-[0.08em] uppercase text-[var(--text-secondary)] px-2 md:px-[6px] py-1 md:py-[3px] border border-[var(--line)] whitespace-nowrap"
                 >
                   {t}
                 </span>

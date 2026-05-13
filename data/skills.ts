@@ -58,7 +58,7 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    group: "Infrastructure",
+    group: "Architecture",
     items: [
       "Git",
       "Docker",

@@ -16,7 +16,7 @@ export function ContactSection() {
       <div className="grid grid-cols-12 gap-6 border-t border-[var(--line)] pt-12">
         <div className="col-span-12 md:col-span-6">
           <p className="text-[var(--foreground)]/85 leading-relaxed max-w-md">
-            Open to software engineering, systems, infrastructure, and applied
+            Open to software engineering, systems, architecture, and applied
             AI roles.
           </p>
         </div>

@@ -24,7 +24,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Mohit Manna",
   description:
-    "Mohit Manna — Computer Engineering @ Purdue. Software systems, applied intelligence, and infrastructure.",
+    "Mohit Manna — Computer Engineering @ Purdue. Software systems, machine learning, and architecture.",
 };
 
 export default function RootLayout({

@@ -16,7 +16,7 @@ export const workItems: WorkItem[] = [
     details: [
       "Incoming SDE Intern on IBM Z NetView, IBM's mainframe network management and automation platform.",
     ],
-    technologies: ["systems", "mainframe", "network automation", "infrastructure"],
+    technologies: ["systems", "mainframe", "network automation", "architecture"],
   },
   {
     company: "Caterpillar",
@@ -45,7 +45,7 @@ export const workItems: WorkItem[] = [
     company: "Purdue Stack",
     role: "Software Developer",
     dates: "Sep – Dec 2025",
-    surfaceLine: "optimization infrastructure for TA scheduling constraints",
+    surfaceLine: "optimization architecture for TA scheduling constraints",
     details: [
       "Engineered Flask REST API with JWT auth and middleware.",
       "Supported 10K+ requests/day across 40+ endpoints.",
@@ -93,7 +93,7 @@ export const workItems: WorkItem[] = [
     company: "MySphere",
     role: "Software Developer",
     dates: "Jun – Aug 2025",
-    surfaceLine: "voice-enabled task infrastructure and low-latency feeds",
+    surfaceLine: "voice-enabled task architecture and low-latency feeds",
     details: [
       "Indexed task/profile queries behind Node APIs.",
       "Reduced around 120ms off task-feed latency for 300+ concurrent users.",

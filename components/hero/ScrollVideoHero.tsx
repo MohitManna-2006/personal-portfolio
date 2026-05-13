@@ -45,7 +45,7 @@ export function ScrollVideoHero() {
               Focus
             </dt>
             <dd className="mt-1 text-[var(--text-secondary)] text-sm md:text-[15px]">
-              Software systems · applied intelligence · infrastructure
+              Software systems · machine learning · architecture
             </dd>
           </div>
         </dl>
