@@ -22,7 +22,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mohit Manna — Software, systems, applied intelligence",
+  title: "Mohit Manna",
   description:
     "Mohit Manna — Computer Engineering @ Purdue. Software systems, applied intelligence, and infrastructure.",
 };
