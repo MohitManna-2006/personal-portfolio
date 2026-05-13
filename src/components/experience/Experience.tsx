@@ -27,7 +27,7 @@ const EXPERIENCES: Experience[] = [
     timelineLabel: "2025 • Backend · Matching Engine",
     bullets: [
       "Optimized a TA–course matching engine, improving placements across 30 math sections.",
-      "Designed REST APIs and a normalized PostgreSQL schema to support ~200 TAs each semester.",
+      "Designed REST APIs and a normalized  PostgreSQL schema to support ~200 TAs each semester.",
       "Integrated CSV exports and batch notifications for one-click reviews, reducing processing latency by 10%."
     ],
     tech: ["Flask", "React", "Python"],
