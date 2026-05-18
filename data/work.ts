@@ -12,9 +12,9 @@ export const workItems: WorkItem[] = [
     company: "IBM",
     role: "Software Engineer Intern",
     dates: "May – Aug 2026",
-    surfaceLine: "mainframe network automation on IBM Z NetView",
+    surfaceLine: "mainframe network automation on Legacy IBM Z NetView",
     details: [
-      "Incoming Software Engineer Intern on IBM Z NetView, IBM's mainframe network management and automation platform.",
+      "Incoming Software Engineer Intern on IBM Z NetView, a legacy mainframe network management and automation platform.",
     ],
     technologies: ["systems", "mainframe", "network automation", "architecture"],
   },
