@@ -1,5 +1,4 @@
 import { ScrollVideoHero } from "@/components/hero/ScrollVideoHero";
-import { CurrentlySection } from "@/components/sections/CurrentlySection";
 import { WorkSection } from "@/components/sections/WorkSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ResearchSection } from "@/components/sections/ResearchSection";
@@ -14,7 +13,6 @@ export default function Home() {
       <SideNav />
       <main className="relative z-10">
         <ScrollVideoHero />
-        <CurrentlySection />
         <WorkSection />
         <ProjectsSection />
         <ResearchSection />
