@@ -4,7 +4,6 @@ import { WorkSection } from "@/components/sections/WorkSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ResearchSection } from "@/components/sections/ResearchSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
-import { NotesSection } from "@/components/sections/NotesSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { SideNav, TopNav } from "@/components/ui/SideNav";
 
@@ -20,7 +19,6 @@ export default function Home() {
         <ProjectsSection />
         <ResearchSection />
         <SkillsSection />
-        <NotesSection />
         <ContactSection />
       </main>
     </>

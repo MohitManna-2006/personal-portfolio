@@ -4,13 +4,12 @@ import { useEffect, useState } from "react";
 import { navLinks, socialLinks } from "@/data/links";
 
 // Sections that exist on the page → which top-level nav item they activate.
-// Research / Skills / Notes fold into Projects until Contact takes over.
+// Research / Skills fold into Projects until Contact takes over.
 const SECTION_TO_NAV: Record<string, string> = {
   work: "work",
   projects: "projects",
   research: "projects",
   skills: "projects",
-  notes: "projects",
   contact: "contact",
 };
 
