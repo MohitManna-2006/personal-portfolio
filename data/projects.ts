@@ -38,7 +38,7 @@ export const projects: ProjectItem[] = [
     title: "Photonic Simulation Lab",
     category: "Research Assistant",
     surfaceLine: "automated waveguide simulation at research scale",
-    metric: "10,000+ designs · 99.7% accuracy · 1st of 200",
+    metric: "10K+ designs · 99.7% accuracy · 1st of 200",
     details: [
       "Accelerated 10,000+ waveguide simulations via Python multiprocessing and HDF5 caching, cutting manual effort by 18%.",
       "Placed 1st among 200 participants at the Purdue Research Symposium for 99.7%-accurate waveguide simulations.",
