@@ -13,7 +13,7 @@ export function WorkSection() {
       id="work"
       className="relative px-6 md:px-12 lg:pr-24 py-24 md:py-36 max-w-[1440px] mx-auto"
     >
-      <SectionHeading index="01" eyebrow="Work" title="Selected experience." />
+      <SectionHeading index="01" eyebrow="Work" title="Experience." />
 
       <ul className="border-t border-[var(--line)]">
         {workItems.map((item, i) => {

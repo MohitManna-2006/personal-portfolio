@@ -7,7 +7,7 @@ export function SkillsSection() {
       id="skills"
       className="relative px-6 md:px-12 lg:pr-24 py-24 md:py-36 max-w-[1440px] mx-auto"
     >
-      <SectionHeading index="04" eyebrow="Skills" title="Technical range." />
+      <SectionHeading index="04" eyebrow="Skills" title="Skills." />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 border-t border-[var(--line)] pt-12">
         {skillGroups.map((g) => (
