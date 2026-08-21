@@ -61,7 +61,7 @@ export function ProjectItem({ item, index, isOpen, onToggle, panelId }: Props) {
                   Signal
                 </div>
                 <div
-                  className={`font-serif text-xl md:text-2xl leading-snug transition-colors ${
+                  className={`font-serif text-xl md:text-2xl leading-snug whitespace-nowrap transition-colors ${
                     isOpen
                       ? "text-[var(--accent)]"
                       : "text-[var(--foreground)] group-hover:text-[var(--accent)]"
