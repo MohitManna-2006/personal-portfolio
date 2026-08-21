@@ -48,6 +48,18 @@ export function ScrollVideoHero() {
               Software systems · machine learning · architecture
             </dd>
           </div>
+          <span
+            aria-hidden
+            className="hidden sm:block h-6 w-px bg-[var(--line)]"
+          />
+          <div className="flex flex-col items-center">
+            <dt className="font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--text-muted)]">
+              Summer 26
+            </dt>
+            <dd className="mt-1 text-[var(--text-secondary)] text-sm md:text-[15px]">
+              Software Engineer Intern @ IBM
+            </dd>
+          </div>
         </dl>
       </div>
 
