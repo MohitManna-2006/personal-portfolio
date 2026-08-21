@@ -10,7 +10,7 @@ export function ContactSection() {
       <SectionHeading
         index="06"
         eyebrow="Contact"
-        title="Want the concise version?"
+        title="Contact."
       />
 
       <div className="grid grid-cols-12 gap-6 border-t border-[var(--line)] pt-12">
