@@ -13,19 +13,31 @@ export type ProjectItem = {
 
 export const projects: ProjectItem[] = [
   {
-    title: "PulseKV",
-    category: "Concurrent Key-Value Storage Engine in C",
-    surfaceLine: "16-thread epoll server sustaining 25K+ req/sec at <5 ms p99",
-    metric: "25K+ req/sec · 500 clients · 1M+ keys",
+    title: "AegisFeed",
+    category: "High-Performance Market Data Engine in C++20",
+    surfaceLine: "zero-allocation Nasdaq feed parser with lossless UDP recovery",
+    metric: "8.7M msgs/sec · 42 µs p99",
     details: [
-      "Sharded mutex-guarded hash buckets on 16-thread epoll server, sustaining 25K+ req/sec across 500 clients at <5 ms p99.",
-      "Designed checksummed append-only persistence with batched log replay, cutting restart time 60% across 1M+ keys.",
+      "Benchmarked 23 Nasdaq message types at 8.7M msgs/sec with zero allocations and bounds-checked parsing.",
+      "Stress-tested a bounded 65K-message reorder buffer under injected packet loss without unbounded memory growth.",
+      "Recovered 1.2M messages under simulated UDP loss at 42 µs p99, matching clean replay with 0 state mismatches.",
     ],
-    technologies: ["C", "epoll", "Linux", "hash sharding", "append-only persistence", "checksum"],
+    technologies: ["C++20", "Nasdaq feeds", "UDP", "zero-allocation", "reorder buffer", "benchmarking"],
+  },
+  {
+    title: "PulseKV",
+    category: "Low-Latency Distributed Key-Value Engine in C",
+    surfaceLine: "distributed key-value store with Raft-backed sharding",
+    metric: "192K req/sec · 5.5 ms p99",
+    details: [
+      "Load-tested a concurrent C server across 16 epoll workers at 192K req/sec on 500 clients at 5.5 ms p99.",
+      "Injected node failures across 256 Raft-backed shards, validating 182K reads with 0 mismatches.",
+    ],
+    technologies: ["C", "epoll", "Raft", "distributed systems", "sharding", "Linux"],
   },
   {
     title: "Fintrak",
-    category: "AI-Powered Finance Tracker",
+    category: "LLM Powered Personal Finance Copilot",
     surfaceLine: "financial copilot for budget intelligence",
     metric: "$180K+ tracked budget · 200+ users",
     details: [
@@ -33,16 +45,5 @@ export const projects: ProjectItem[] = [
       "Architected AI cron pipelines detecting spending spikes above 2× 30-day baselines, delivering 600+ daily budget nudges.",
     ],
     technologies: ["TypeScript", "LLM", "PostgreSQL", "cron pipelines", "budget intelligence", "streaming"],
-  },
-  {
-    title: "Photonic Simulation Lab",
-    category: "Research Assistant",
-    surfaceLine: "automated waveguide simulation at research scale",
-    metric: "10K+ designs · 99.7% · 1st/200",
-    details: [
-      "Accelerated 10,000+ waveguide simulations via Python multiprocessing and HDF5 caching, cutting manual effort by 18%.",
-      "Placed 1st among 200 participants at the Purdue Research Symposium for 99.7%-accurate waveguide simulations.",
-    ],
-    technologies: ["Python", "HDF5", "multiprocessing", "numerical methods", "simulation", "waveguides"],
   },
 ];

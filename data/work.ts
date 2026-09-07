@@ -27,11 +27,11 @@ export const workItems: WorkItem[] = [
     dates: "Jan – Apr 2026",
     surfaceLine: "RLHF pipeline and LLM serving optimization on 8× A100",
     details: [
-      "Built an RLHF pipeline for code LLMs, training on 50K+ preferences and improving pass@1 by 18%.",
-      "Engineered a sandboxed code-eval harness, scoring 250K+ generations at 7.4x higher throughput.",
-      "Optimized LLM serving via vLLM and AWQ, cutting p95 latency by 42% on 8x A100 GPUs.",
+      "Trained an RLHF pipeline for code LLMs with Hugging Face on 50K samples, improving pass@1 by 18%.",
+      "Built a code-eval harness for 250K generated programs using async multiprocessing, increasing throughput by 7.4×.",
+      "Optimized AWQ-quantized vLLM inference across 8× A100 GPUs, cutting p95 latency by 42%.",
     ],
-    technologies: ["PyTorch", "RLHF", "vLLM", "AWQ", "LLM serving", "sandboxed eval"],
+    technologies: ["PyTorch", "Hugging Face", "RLHF", "vLLM", "AWQ", "multiprocessing"],
   },
   {
     company: "Caterpillar",
@@ -46,15 +46,14 @@ export const workItems: WorkItem[] = [
     technologies: ["PyTorch", "Temporal Fusion Transformer", "Optuna", "TorchScript", "Docker", "Kubernetes", "Angular"],
   },
   {
-    company: "Creative Capital — Stealth AI Startup",
-    role: "Software Engineer Intern",
+    company: "Stealth Startup",
+    role: "Founding Engineer",
     dates: "Jun – Aug 2025",
-    surfaceLine: "Stealth AI startup — React/GraphQL dashboard with WebSockets at scale",
+    surfaceLine: "real estate data streaming to 500+ clients",
     details: [
-      "Shipped React dashboard with GraphQL and WebSockets, handling 500+ concurrent connections across 10K data points.",
-      "Trained a scikit-learn AI model on 50K+ market records using pandas, reaching 89% backtesting accuracy.",
-      "Secured 40+ Express endpoints with JWT authentication and PostgreSQL RLS, validated by 50+ Jest integration tests.",
+      "Shipped a React dashboard streaming 10K real estate data points over WebSockets to 500+ concurrent connections.",
+      "Built API infrastructure over 50K market records, securing 47 Express endpoints with JWT and PostgreSQL RLS.",
     ],
-    technologies: ["React", "GraphQL", "WebSockets", "scikit-learn", "pandas", "Express", "JWT", "PostgreSQL", "Jest"],
+    technologies: ["React", "WebSockets", "Express", "JWT", "PostgreSQL", "real-time"],
   },
 ];

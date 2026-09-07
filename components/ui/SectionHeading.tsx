@@ -47,7 +47,9 @@ export function SectionHeading({ index, eyebrow, title }: Props) {
           className="hidden md:inline-block h-[3px] w-[3px] rounded-full bg-[var(--text-muted)] opacity-80"
         />
 
-        <span>{eyebrow}</span>
+        <span className="font-medium tracking-[0.24em] text-[var(--foreground)]">
+          {eyebrow}
+        </span>
       </div>
 
       <h2 className="font-serif text-4xl md:text-6xl tracking-[-0.02em] leading-[1.02] text-[var(--foreground)]">
