@@ -53,7 +53,7 @@ export function ContactSection() {
         </ul>
       </div>
 
-      <footer className="mt-24 md:mt-40 pt-8 border-t border-[var(--line)] flex flex-col md:flex-row md:items-center md:justify-between gap-3 font-mono text-[10px] tracking-[0.22em] uppercase text-[var(--text-muted)]">
+      <footer className="mt-24 md:mt-40 pt-8 border-t border-[var(--line)] flex flex-col md:flex-row md:items-center md:justify-between gap-3 font-mono text-[10px] tracking-[0.22em] uppercase font-medium text-[var(--text-secondary)]">
         <span>© 2026 · Mohit Manna</span>
         <span>Built quietly · Next · Tailwind</span>
       </footer>

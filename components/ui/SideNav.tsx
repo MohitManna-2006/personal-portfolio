@@ -158,7 +158,7 @@ export function SocialCluster({
 }) {
   return (
     <ul
-      className={`flex items-center gap-5 font-mono text-[10px] tracking-[0.22em] uppercase ${className}`}
+      className={`flex items-center gap-5 font-mono text-[10px] tracking-[0.22em] uppercase font-medium ${className}`}
     >
       {socialLinks.map((s) => (
         <li key={s.label}>
@@ -166,7 +166,7 @@ export function SocialCluster({
             href={s.href}
             target={s.external ? "_blank" : undefined}
             rel={s.external ? "noopener noreferrer" : undefined}
-            className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
+            className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
           >
             {s.label}
           </a>
