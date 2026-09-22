@@ -1,10 +1,10 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const metrics = [
-  { value: "10,000+", label: "designs simulated" },
-  { value: "99.7%", label: "accuracy" },
-  { value: "18%", label: "less manual analysis" },
-  { value: "1 / 200", label: "Purdue Symposium" },
+  { value: "7K", label: "parameter sweeps" },
+  { value: "70", label: "parallel workers" },
+  { value: "15%", label: "faster runtime" },
+  { value: "<75 ms", label: "p95 dispatch" },
 ];
 
 export function ResearchSection() {
@@ -21,10 +21,10 @@ export function ResearchSection() {
 
       <div className="flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between md:gap-12">
         <p className="text-[var(--foreground)]/85 leading-relaxed max-w-lg">
-          Automated waveguide simulation at research scale.
+          Parallelized waveguide simulation at research scale.
         </p>
         <div className="shrink-0 font-mono text-[10px] tracking-[0.22em] uppercase font-medium text-[var(--text-secondary)]">
-          Purdue · Undergraduate Research
+          1st / 200 · Purdue Research Symposium
         </div>
       </div>
 
