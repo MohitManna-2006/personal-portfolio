@@ -64,15 +64,15 @@ export function ScrollVideoHero() {
 
         {/* Accolades rail — same mono label system as the metadata above. */}
         <ul className="mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase font-medium text-[var(--text-secondary)]">
-          <li>USACO Gold</li>
+          <li>1st / 200 Purdue Research Symposium</li>
           <li aria-hidden className="text-[var(--accent)]">
             ·
           </li>
-          <li>1st / 200 Purdue Engineering Symposium</li>
+          <li>ML @ Purdue</li>
           <li aria-hidden className="text-[var(--accent)]">
             ·
           </li>
-          <li>5× Hackathon Winner</li>
+          <li>Purdue Stack</li>
         </ul>
       </div>
 
