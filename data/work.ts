@@ -9,6 +9,16 @@ export type WorkItem = {
 
 export const workItems: WorkItem[] = [
   {
+    company: "Millennium",
+    role: "Incoming Software Engineer Intern",
+    dates: "Summer 2027",
+    surfaceLine: "equities trading technology and applied AI in New York",
+    details: [
+      "Incoming Summer 2027 Software Engineer Intern in NYC, joining Equities Trading Technology and Applied AI.",
+    ],
+    technologies: ["equities", "trading tech", "applied AI", "NYC"],
+  },
+  {
     company: "IBM",
     role: "Software Engineer Intern",
     dates: "May – Aug 2026",
