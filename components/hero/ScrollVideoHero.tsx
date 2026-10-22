@@ -54,10 +54,10 @@ export function ScrollVideoHero() {
           />
           <div className="flex flex-col items-center">
             <dt className="font-mono text-[10px] tracking-[0.26em] uppercase font-medium text-[var(--accent)]">
-              Summer 26
+              Summer 27
             </dt>
             <dd className="mt-2 text-[var(--foreground)] font-medium text-[15px] md:text-[17px] tracking-[-0.01em]">
-              Software Engineer Intern @ IBM
+              Incoming Software Engineer Intern @ Millennium
             </dd>
           </div>
         </dl>
